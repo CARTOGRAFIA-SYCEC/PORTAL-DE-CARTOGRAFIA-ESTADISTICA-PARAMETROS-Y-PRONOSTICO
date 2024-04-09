@@ -1,0 +1,79 @@
+.leaflet-control-minimap{
+    border:#ffffff solid;
+    box-shadow:0 7px 7px #c7eae5;
+    border-radius:7px;
+    background:#ffffff;
+    transition:all .6s;
+}
+.leaflet-control-minimap a{
+    background-color:#ffffff;
+    background-repeat:no-repeat;
+    z-index:99999;
+    transition:all .6s;
+}
+.leaflet-control-minimap
+a.minimized-bottomright{
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+    border-radius:0;
+}
+.leaflet-control-minimap
+a.minimized-topleft{
+    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg);
+    border-radius:0;
+}
+.leaflet-control-minimap a.minimized-bottomleft{
+    -webkit-transform:rotate(270deg);
+    transform:rotate(270deg);
+    border-radius:0;
+}
+.leaflet-control-minimap
+a.minimized-topright{
+    -webkit-transform:rotate(90deg);
+    transform:rotate(90deg);
+    border-radius:0;
+}
+.leaflet-control-minimap-toggle-display{
+    background-image:url(Control.MiniMap.svg);
+    background-size:cover;
+    position:absolute;
+    border-radius:7px 0 0;
+}
+.leaflet-oldie
+.leaflet-control-minimap-toggle-display{
+    background-image:url(Control.MiniMap.png)
+}
+.leaflet-control-minimap-toggle-display-bottomright{
+    bottom:0;
+    right:0
+}
+.leaflet-control-minimap-toggle-display-topleft{
+    top:0;
+    left:0;
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg)}
+.leaflet-control-minimap-toggle-display-bottomleft{
+    bottom:0;
+    left:0;
+    -webkit-transform:rotate(90deg);
+    transform:rotate(90deg)
+}
+.leaflet-control-minimap-toggle-display-topright{
+    top:0;right:0;
+    -webkit-transform:rotate(270deg);
+    transform:rotate(270deg)
+}
+.leaflet-oldie
+.leaflet-control-minimap{
+    border:7px solid #c7eae5
+}
+.leaflet-oldie
+.leaflet-control-minimap a{
+    background-color:#ffffff
+}
+.leaflet-oldie
+.leaflet-control-minimap
+a.minimized{
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2)
+}
