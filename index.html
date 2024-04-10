@@ -295,7 +295,7 @@
 						layers: [osm],
 						tap: false,
 						center: new L.LatLng(22.25, -92.25),
-						zoom: 7,
+						zoom: 6,
 						minZoom: 5,
 						fullscreenControl: true,
 						fullscreenControlOptions: {
@@ -875,10 +875,10 @@
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
 					L.control.resetView({
-        			position: "topleft",
-        			title: "Return zoom",
-       				latlng: L.latLng([22.25, -92.25]),
-        			zoom: 7,
+		        			position: "topleft",
+		        			title: "Return zoom",
+		       				latlng: L.latLng([22.25, -92.25]),
+		        			zoom: 6,
    					}).addTo(map);
 					// SEARCH CONTROL //
 					//let searchControl = new L.Control.Search({
