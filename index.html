@@ -169,12 +169,17 @@
 							<div class="sidepanel-content">
 								<div class="sidepanel-tab-content" data-tab-content="tab-1">
 									 <h4>PORTAL DE CARTOGRAFÍA, ESTADÍSTICA, PARÁMETROS Y PRONÓSTICO</h4>
-									 <p>Aqui poner descripción</p>
+									 <p>
+										 El siguiente portal contiene información sintetizada de los productos finales 
+										 de los diferentes portales elaborados, así como la implementación complementaría 
+										 de nueva cartografía de apoyo para el personal de la empresa.
+									 </p>
 								</div>
 								<div class="sidepanel-tab-content" data-tab-content="tab-2">
 									 <h4>CARTOGRAFÍA</h4>
 									 <p>
-										En el siguiente apartado se encontrarán los archivos en diferentes formatos de la cartografía realizada.
+										En el siguiente apartado se encontrarán el listado de los archivos en diferentes 
+										formatos de la cartografía realizada por SYCEC.
 										<br></br>
 										<a href="#" class="btn">FORMATO SHAPEFILE (.SHP)</a>
 										<br></br>
@@ -191,7 +196,8 @@
 								<div class="sidepanel-tab-content" data-tab-content="tab-3">
 									 <h4>ESTADÍSTICA</h4>
 									 <p>
-										En el siguiente apartado se encontrará la cartografía referente a "Estadística" así como información complementaría del sitio.
+										En el siguiente apartado se encontrará la cartografía referente a "Estadística" 
+										así como información complementaría del sitio "ESTADÍSTICA".
 										<br></br>
 										<a href="Boya_-_Anclaje.rar" class="btn">BOYAS / ANCLAJES</a>
 										<br></br>
@@ -208,13 +214,10 @@
 								<div class="sidepanel-tab-content" data-tab-content="tab-4">
 									 <h4>PARÁMETROS</h4>
 									 <p>
-										En el siguiente apartado se encontrará la cartografía referente a "Parámetros" así como información complementaría del sitio.
+										En el siguiente apartado se encontrará la cartografía referente a "Parámetros" 
+										así como información complementaría del sitio "PARÁMETROS".
 										<br></br>
 										<a href="#" class="btn">PARÁMETROS X</a>
-										<br></br>
-										<a href="#" class="btn">PARÁMETROS Y</a>
-										<br></br>
-										<a href="#" class="btn">PARÁMETROS Z</a>
 										<br></br>
 										<a href="https://parametros.sycec.mx/login" class="btn">SITIO PARÁMETROS</a>
 									 </p>
@@ -222,13 +225,10 @@
 								<div class="sidepanel-tab-content" data-tab-content="tab-5">
 									<h4>PRONÓSTICO</h4>
 									<p>
-										En el siguiente apartado se encontrará la cartografía referente a "Pronósticos" así como información complementaría del sitio.
+										En el siguiente apartado se encontrará la cartografía referente a "Pronósticos" 
+										así como información complementaría del sitio "SIPRO".
 										<br></br>
-										<a href="#" class="btn">PRONÓSTICOS X</a>
-										<br></br>
-										<a href="#" class="btn">PRONÓSTICOS Y</a>
-										<br></br>
-										<a href="#" class="btn">PRONÓSTICOS Z</a>
+										<a href="#" class="btn">PRONÓSTICO</a>
 										<br></br>
 										<a href="https://pronostico.sycec.mx/login" class="btn">SITIO PRONÓSTICO</a>
 										<br></br>
@@ -241,7 +241,7 @@
 										<br></br>
 										<a href="https://maps.app.goo.gl/KXfM5qyWxJtTY2FT9" class="btn">DIRECCIÓN</a>
 										<br></br>
-										<a href="mailto:uc.rogelio@sycec.com.mx" class="btn">CORREO</a>
+										<a href="mailto:mateos.adriana@sycec.com.mx" class="btn">CORREO</a>
 										<br></br>
 										<a href="#" class="btn">TELEFONO</a>
 									</p>
@@ -927,9 +927,9 @@
 					let overlays = {
 							'Boyas y Anclaje': Boyas_y_Anclaje,
 							'Localizaciones': Localizacion,
-							'Localizaciones Parametro (Punto)': Parametro,
-							'Localizaciones Parametro (Polígono)': polyparameters,
-							'Infraestructura Maritima': InfraestructuraPEMEX,
+							'Localizaciones Parámetro (Punto)': Parametro,
+							'Localizaciones Parámetro (Polígono)': polyparameters,
+							'Infraestructura Marítima': InfraestructuraPEMEX,
 							'Huracán categoría 1': Huracan1,
 							'Huracán categoría 2': Huracan2,
 							'Huracán categoría 3': Huracan3,
@@ -945,7 +945,7 @@
 							'Asignaciones: No Vigentes': Asignaciones_No_Vigentes,
 							'Contrato: Licencias': Contrato_Licencias,
 							'Contrato: No Vigentes': Contratos_No_Vigentes,
-							'Contrato: Produccion Compartida': Contratos_Produccion_Compartida
+							'Contrato: Producción Compartida': Contratos_Produccion_Compartida
 						};
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
