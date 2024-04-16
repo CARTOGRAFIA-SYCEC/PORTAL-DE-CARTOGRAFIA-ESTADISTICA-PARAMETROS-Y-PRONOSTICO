@@ -6,7 +6,7 @@
 		<!--TITULO (PESTAÑA)-->
 		<title>PORTAL DE CARTOGRAFÍA, ESTADÍSTICA, PARÁMETROS Y PRONÓSTICO</title>
 		<!--META-->
-		<meta charset="UTF-8" content="IE-edge" content="width=device-width, initial-scale=1.0" http-equiv="X-UA-Compatible" name="viewport">
+		<meta charset="UTF-8" content="IE-edge" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" http-equiv="X-UA-Compatible" name="viewport" >
 		<!--LINK DE REFERENCIA-->
 		<link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css"></script>
 		<link type="text/css" rel="stylesheet" href="Control.FullScreen.css"></script> <!--PLUGIN BY 'BRUNO B' - GITHUB:'https://github.com/brunob/leaflet.fullscreen'-->
@@ -926,26 +926,26 @@
 						};               
 					let overlays = {
 							'Boyas y Anclaje': Boyas_y_Anclaje,
-							'Localizacion': Localizacion,
-							'Localizaciones Parametro (Punto)': Parametro,
-							'Localizaciones Parametro (Polígono)': polyparameters,
-							'Infraestructura Maritima': InfraestructuraPEMEX,
-							'Huracan 1': Huracan1,
-							'Huracan 2': Huracan2,
-							'Huracan 3': Huracan3,
-							'Huracan 4': Huracan4,
-							'Huracan 5': Huracan5,
+							'Localizaciones': Localizacion,
+							'Localizaciones Parámetro (Punto)': Parametro,
+							'Localizaciones Parámetro (Polígono)': polyparameters,
+							'Infraestructura Marítima (PEMEX)': InfraestructuraPEMEX,
+							'Huracán Categoría 1': Huracan1,
+							'Huracán Categoría 2': Huracan2,
+							'Huracán Categoría 3': Huracan3,
+							'Huracán Categoría 4': Huracan4,
+							'Huracán Categoría 5': Huracan5,
 							'Plan Quinquenal: Aguas Profundas': Aguas_Profundas,
 							'Plan Quinquenal: Aguas Someras': Aguas_Someras,
-							'Ronda 1': Ronda_1,
-							'Ronda 2': Ronda_2,
-							'Ronda 3': Ronda_3,
-							'Asignaciones de PEMEX': Asignaciones_Pemex,
-							'Asignaciones Vigentes': Asignaciones_Vigentes,
-							'Asignaciones No Vigentes': Asignaciones_No_Vigentes,
-							'Contrato Licencias': Contrato_Licencias,
-							'Contrato No Vigentes': Contratos_No_Vigentes,
-							'Contrato Produccion Compartida': Contratos_Produccion_Compartida
+							'Licitación: Ronda 1': Ronda_1,
+							'Licitación: Ronda 2': Ronda_2,
+							'Licitación: Ronda 3': Ronda_3,
+							'Licitación: Asignaciones de PEMEX': Asignaciones_Pemex,
+							'Asignaciones: Vigentes': Asignaciones_Vigentes,
+							'Asignaciones: No Vigentes': Asignaciones_No_Vigentes,
+							'Contratos: Licencias': Contrato_Licencias,
+							'Contratos: No Vigentes': Contratos_No_Vigentes,
+							'Contratos: Producción Compartida': Contratos_Produccion_Compartida
 						};
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
