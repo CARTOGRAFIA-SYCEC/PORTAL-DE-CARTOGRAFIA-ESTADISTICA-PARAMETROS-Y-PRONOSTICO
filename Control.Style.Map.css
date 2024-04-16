@@ -1,7 +1,7 @@
 #map {
     margin: 0;
     height: 100%;
-    width: 100%;
+    width: 100% 100vw;
     min-height: 865px;
     max-height: 900px;
     border: 2.5px solid #003c30;
