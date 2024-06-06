@@ -433,7 +433,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-						let InfraestructuraPEMEX = L.geoJson(infpemex, {pointToLayer: function (feature, latlng) {
+					let InfraestructuraPEMEX = L.geoJson(infpemex, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							radius: 5,
 							fillColor: '#ffffff',
@@ -599,7 +599,6 @@
 						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.CVE_NOMBRE +
 							   "</div><hr><table><tr><td>Nombre completo: " + layer.feature.properties.NOMBRE +
 							   "</td></tr><tr><td>Localización: " + layer.feature.properties.UBICACION +
-							   "</td></tr><tr><td>tTirante: " + layer.feature.properties.TITRANTE +
 							   "</td></tr><tr><td>Centroide coordenada X: " + layer.feature.properties.COORD_X +
 							   "</td></tr><tr><td>Centroide coordenada Y: " + layer.feature.properties.COORD_Y +
 							   "</td></tr><tr><td>Fecha de reporte parámetros 1: " + layer.feature.properties.F1_RP +
@@ -615,7 +614,6 @@
 							return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.CVE_NOMBRE +
 							   "</div><hr><table><tr><td>Nombre completo: " + layer.feature.properties.NOMBRE +
 							   "</td></tr><tr><td>Localización: " + layer.feature.properties.UBICACION +
-							   "</td></tr><tr><td>tTirante: " + layer.feature.properties.TITRANTE +
 							   "</td></tr><tr><td>Centroide coordenada X: " + layer.feature.properties.COORD_X +
 							   "</td></tr><tr><td>Centroide coordenada Y: " + layer.feature.properties.COORD_Y +
 							   "</td></tr><tr><td>Fecha de reporte parámetros 1: " + layer.feature.properties.F1_RP +
