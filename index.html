@@ -28,7 +28,7 @@
 		<!--script type="text/javascript" src="0_BOYA_ANCLAJE.JS"></script-->
 		<script type="text/javascript" src="0_BOT.js"></script>
 		<script type="text/javascript" src="0_BMT.js"></script>
-		<script type="text/javascript" src="0_AOP.js"></script>
+		<!--script type="text/javascript" src="0_AOP.js"></script-->
 		<script type="text/javascript" src="0_LOCALIZACION.js"></script>
 		<script type="text/javascript" src="0_LOCALIZACION_PARAMETRO.js"></script>
 		<script type="text/javascript" src="0INF_PEMEX.js"></script>
@@ -420,27 +420,27 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-						let AOP = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, {
-							   radius: 5,
-							   fillColor: '#7a8ef5',
-							   color: '#ffffff',
-							   weight: 1,
-							   opacity: 1,
-							   fillOpacity: 1,
-						});}}).bindPopup(function (layer){
-						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
-							   "</div><hr><table><tr><td>Tipo de Anclaje: " + layer.feature.properties.N_BOYA +
-							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
-							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
-							   "</td></tr></table>"
-						}).bindTooltip(function (layer){
-						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
-							   "</div><hr><table><tr><td>Tipo de Anclaje: " + layer.feature.properties.N_BOYA +
-							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
-							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
-							   "</td></tr></table>"
-						}).addTo(map);
+						//let AOP = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
+						//return L.circleMarker(latlng, {
+						//	   radius: 5,
+						//	   fillColor: '#7a8ef5',
+						//	   color: '#ffffff',
+						//	   weight: 1,
+						//	   opacity: 1,
+						//	   fillOpacity: 1,
+						//});}}).bindPopup(function (layer){
+						//return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+						//	   "</div><hr><table><tr><td>Tipo de Anclaje: " + layer.feature.properties.N_BOYA +
+						//	   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+						//	   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+						//	   "</td></tr></table>"
+						//}).bindTooltip(function (layer){
+						//return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+						//	   "</div><hr><table><tr><td>Tipo de Anclaje: " + layer.feature.properties.N_BOYA +
+						//	   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+						//	   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+						//	   "</td></tr></table>"
+						//}).addTo(map);
 
 					let Localizacion = L.geoJson(localizacion, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
@@ -997,7 +997,7 @@
 							//'Boyas y Anclaje': Boyas_y_Anclaje,
 							'Boya Oceanográfica':BOT,
 							'Boya Metoceánica': BMT,
-							'Anclaje':AOP,
+							'Anclaje Oceanográfica':AOP,
 							'Localizacion': Localizacion,
 							'Localizaciones Parametro (Punto)': Parametro,
 							'Localizaciones Parametro (Polígono)': polyparameters,
