@@ -172,17 +172,12 @@
 							<div class="sidepanel-content">
 								<div class="sidepanel-tab-content" data-tab-content="tab-1">
 									 <h4>PORTAL DE CARTOGRAFÍA, ESTADÍSTICA, PARÁMETROS Y PRONÓSTICO</h4>
-									 <p>
-										 El siguiente portal contiene información sintetizada de los productos finales 
-										 de los diferentes portales elaborados, así como la implementación complementaría 
-										 de nueva cartografía de apoyo para el personal de la empresa.
-									 </p>
+									 <p>Aqui poner descripción</p>
 								</div>
 								<div class="sidepanel-tab-content" data-tab-content="tab-2">
 									 <h4>CARTOGRAFÍA</h4>
 									 <p>
-										En el siguiente apartado se encontrarán el listado de los archivos en diferentes 
-										formatos de la cartografía realizada por SYCEC.
+										En el siguiente apartado se encontrarán los archivos en diferentes formatos de la cartografía realizada.
 										<br></br>
 										<a href="#" class="btn">FORMATO SHAPEFILE (.SHP)</a>
 										<br></br>
@@ -199,8 +194,7 @@
 								<div class="sidepanel-tab-content" data-tab-content="tab-3">
 									 <h4>ESTADÍSTICA</h4>
 									 <p>
-										En el siguiente apartado se encontrará la cartografía referente a "Estadística" 
-										así como información complementaría del sitio "ESTADÍSTICA".
+										En el siguiente apartado se encontrará la cartografía referente a "Estadística" así como información complementaría del sitio.
 										<br></br>
 										<a href="Boya_-_Anclaje.rar" class="btn">BOYAS / ANCLAJES</a>
 										<br></br>
@@ -217,10 +211,13 @@
 								<div class="sidepanel-tab-content" data-tab-content="tab-4">
 									 <h4>PARÁMETROS</h4>
 									 <p>
-										En el siguiente apartado se encontrará la cartografía referente a "Parámetros" 
-										así como información complementaría del sitio "PARÁMETROS".
+										En el siguiente apartado se encontrará la cartografía referente a "Parámetros" así como información complementaría del sitio.
 										<br></br>
 										<a href="#" class="btn">PARÁMETROS X</a>
+										<br></br>
+										<a href="#" class="btn">PARÁMETROS Y</a>
+										<br></br>
+										<a href="#" class="btn">PARÁMETROS Z</a>
 										<br></br>
 										<a href="https://parametros.sycec.mx/login" class="btn">SITIO PARÁMETROS</a>
 									 </p>
@@ -228,10 +225,13 @@
 								<div class="sidepanel-tab-content" data-tab-content="tab-5">
 									<h4>PRONÓSTICO</h4>
 									<p>
-										En el siguiente apartado se encontrará la cartografía referente a "Pronósticos" 
-										así como información complementaría del sitio "SIPRO".
+										En el siguiente apartado se encontrará la cartografía referente a "Pronósticos" así como información complementaría del sitio.
 										<br></br>
-										<a href="#" class="btn">PRONÓSTICO</a>
+										<a href="#" class="btn">PRONÓSTICOS X</a>
+										<br></br>
+										<a href="#" class="btn">PRONÓSTICOS Y</a>
+										<br></br>
+										<a href="#" class="btn">PRONÓSTICOS Z</a>
 										<br></br>
 										<a href="https://pronostico.sycec.mx/login" class="btn">SITIO PRONÓSTICO</a>
 										<br></br>
@@ -244,7 +244,7 @@
 										<br></br>
 										<a href="https://maps.app.goo.gl/KXfM5qyWxJtTY2FT9" class="btn">DIRECCIÓN</a>
 										<br></br>
-										<a href="mailto:mateos.adriana@sycec.com.mx" class="btn">CORREO</a>
+										<a href="mailto:uc.rogelio@sycec.com.mx" class="btn">CORREO</a>
 										<br></br>
 										<a href="#" class="btn">TELEFONO</a>
 									</p>
@@ -371,7 +371,7 @@
 					//		   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.LON_X +
 					//		   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.LAT_Y +
 					//		   "</td></tr><tr><td>Tirante: " + layer.feature.properties.TIRANTE +
-					//		   "</td></tr><tr><td>Campañas: " + layer.feature.properties.CAMPANIA +
+					//		   "</td></tr><trs><td>Campañas: " + layer.feature.properties.CAMPANIA +
 					//		   "</td></tr><tr><td>Periodo: " + layer.feature.properties.PERIODO +
 					//		   "</td></tr></table>"
 					//	}).addTo(map);
@@ -398,7 +398,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-					let BMT = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
+						let BMT = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#ffc84b',
@@ -420,7 +420,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-					let AOP = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
+						let AOP = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#7a8ef5',
@@ -441,7 +441,7 @@
 							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
 							   "</td></tr></table>"
 						}).addTo(map);
-					
+
 					let Localizacion = L.geoJson(localizacion, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
@@ -502,7 +502,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-					let InfraestructuraPEMEX = L.geoJson(infpemex, {pointToLayer: function (feature, latlng) {
+						let InfraestructuraPEMEX = L.geoJson(infpemex, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							radius: 5,
 							fillColor: '#ffffff',
@@ -668,6 +668,7 @@
 						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.CVE_NOMBRE +
 							   "</div><hr><table><tr><td>Nombre completo: " + layer.feature.properties.NOMBRE +
 							   "</td></tr><tr><td>Localización: " + layer.feature.properties.UBICACION +
+							   "</td></tr><tr><td>tTirante: " + layer.feature.properties.TITRANTE +
 							   "</td></tr><tr><td>Centroide coordenada X: " + layer.feature.properties.COORD_X +
 							   "</td></tr><tr><td>Centroide coordenada Y: " + layer.feature.properties.COORD_Y +
 							   "</td></tr><tr><td>Fecha de reporte parámetros 1: " + layer.feature.properties.F1_RP +
@@ -683,6 +684,7 @@
 							return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.CVE_NOMBRE +
 							   "</div><hr><table><tr><td>Nombre completo: " + layer.feature.properties.NOMBRE +
 							   "</td></tr><tr><td>Localización: " + layer.feature.properties.UBICACION +
+							   "</td></tr><tr><td>tTirante: " + layer.feature.properties.TITRANTE +
 							   "</td></tr><tr><td>Centroide coordenada X: " + layer.feature.properties.COORD_X +
 							   "</td></tr><tr><td>Centroide coordenada Y: " + layer.feature.properties.COORD_Y +
 							   "</td></tr><tr><td>Fecha de reporte parámetros 1: " + layer.feature.properties.F1_RP +
@@ -996,26 +998,26 @@
 							'Boya Oceanográfica':BOT,
 							'Boya Metoceánica': BMT,
 							'Anclaje':AOP,
-							'Localizaciones': Localizacion,
-							'Localizaciones Parámetro (Punto)': Parametro,
-							'Localizaciones Parámetro (Polígono)': polyparameters,
-							'Infraestructura Marítima': InfraestructuraPEMEX,
-							'Huracán categoría 1': Huracan1,
-							'Huracán categoría 2': Huracan2,
-							'Huracán categoría 3': Huracan3,
-							'Huracán categoría 4': Huracan4,
-							'Huracán categoría 5': Huracan5,
+							'Localizacion': Localizacion,
+							'Localizaciones Parametro (Punto)': Parametro,
+							'Localizaciones Parametro (Polígono)': polyparameters,
+							'Infraestructura Maritima': InfraestructuraPEMEX,
+							'Huracan 1': Huracan1,
+							'Huracan 2': Huracan2,
+							'Huracan 3': Huracan3,
+							'Huracan 4': Huracan4,
+							'Huracan 5': Huracan5,
 							'Plan Quinquenal: Aguas Profundas': Aguas_Profundas,
 							'Plan Quinquenal: Aguas Someras': Aguas_Someras,
-							'Licitaciones: Ronda 1': Ronda_1,
-							'Licitaciones: Ronda 2': Ronda_2,
-							'Licitaciones: Ronda 3': Ronda_3,
-							'Licitaciones: Asignaciones de PEMEX': Asignaciones_Pemex,
-							'Asignaciones: Vigentes': Asignaciones_Vigentes,
-							'Asignaciones: No Vigentes': Asignaciones_No_Vigentes,
-							'Contrato: Licencias': Contrato_Licencias,
-							'Contrato: No Vigentes': Contratos_No_Vigentes,
-							'Contrato: Producción Compartida': Contratos_Produccion_Compartida
+							'Ronda 1': Ronda_1,
+							'Ronda 2': Ronda_2,
+							'Ronda 3': Ronda_3,
+							'Asignaciones de PEMEX': Asignaciones_Pemex,
+							'Asignaciones Vigentes': Asignaciones_Vigentes,
+							'Asignaciones No Vigentes': Asignaciones_No_Vigentes,
+							'Contrato Licencias': Contrato_Licencias,
+							'Contrato No Vigentes': Contratos_No_Vigentes,
+							'Contrato Produccion Compartida': Contratos_Produccion_Compartida
 						};
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
