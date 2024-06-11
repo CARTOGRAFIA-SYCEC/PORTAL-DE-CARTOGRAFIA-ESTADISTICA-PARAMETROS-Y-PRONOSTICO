@@ -27,6 +27,7 @@
 		<!--PUNTOS-->
 		<script type="text/javascript" src="0_BOYA_ANCLAJE.JS"></script>
 		<script type="text/javascript" src="0_BOT.js"></script>
+		<script type="text/javascript" src="0_BMT.js"></script>
 		<script type="text/javascript" src="0_LOCALIZACION.js"></script>
 		<script type="text/javascript" src="0_LOCALIZACION_PARAMETRO.js"></script>
 		<script type="text/javascript" src="0INF_PEMEX.js"></script>
@@ -378,6 +379,28 @@
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#e36666',
+							   color: '#ffffff',
+							   weight: 1,
+							   opacity: 1,
+							   fillOpacity: 1,
+						});}}).bindPopup(function (layer){
+						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+							   "</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
+							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+							   "</td></tr></table>"
+						}).bindTooltip(function (layer){
+						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+							   "</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
+							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+							   "</td></tr></table>"
+						}).addTo(map);
+					
+					let BMT0 = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, {
+							   radius: 5,
+							   fillColor: '#ffc84b',
 							   color: '#ffffff',
 							   weight: 1,
 							   opacity: 1,
@@ -950,6 +973,7 @@
 					let overlays = {
 							'Boyas y Anclaje': Boyas_y_Anclaje,
 							'Boya Oceanográfica': BOT0,
+							'Boya Metoceánica': BMT0,
 							'Localizacion': Localizacion,
 							'Localizaciones Parametro (Punto)': Parametro,
 							'Localizaciones Parametro (Polígono)': polyparameters,
