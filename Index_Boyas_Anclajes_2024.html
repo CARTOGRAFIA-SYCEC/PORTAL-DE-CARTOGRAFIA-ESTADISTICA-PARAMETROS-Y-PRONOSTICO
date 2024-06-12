@@ -324,6 +324,16 @@
 					let miniMap = new L.Control.MiniMap(MMap, { toggleDisplay: true, position: 'bottomleft'}).addTo(map);					
 					// CARTOGRAFIA GEOJSON (CAPAS) //
 					// PUNTOS (CAPAS) //
+					let BOYA_ANCLAJE_2024 = L.geoJson(bya_2024, {pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, {
+							   radius: 5,
+							   fillColor: '#ffffff',
+							   color: '#ffffff',
+							   weight: 0,
+							   opacity: 0,
+							   fillOpacity: 0,
+						});}}).addTo(map);
+					
 					let BOT0 = L.geoJson(bot, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
@@ -346,7 +356,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-						let BMT0 = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
+					let BMT0 = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#ffc84b',
@@ -368,7 +378,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-						let AOP0 = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
+					let AOP0 = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#7a8ef5',
@@ -390,15 +400,6 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 					
-						let BOYA_ANCLAJE_2024 = L.geoJson(bya_2024, {pointToLayer: function (feature, latlng) {
-						return L.circleMarker(latlng, {
-							   radius: 5,
-							   fillColor: '#ffffff',
-							   color: '#ffffff',
-							   weight: 0,
-							   opacity: 0,
-							   fillOpacity: 0,
-						});}}).addTo(map);
 					// ACTIVAR CAPAS //
 					let baseLayers = {
 							'OpenStreetMap Standard': osm,
