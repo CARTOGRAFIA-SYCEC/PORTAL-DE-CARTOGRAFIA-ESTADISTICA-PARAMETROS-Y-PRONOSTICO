@@ -30,6 +30,7 @@
 		<script type="text/javascript" src="0_BMT.js"></script>
 		<script type="text/javascript" src="0_AOP.js"></script>
 		<script type="text/javascript" src="0_ByA_2024.js"></script>
+		<script type="text/javascript" src="0_ByA_2008_2022.js"></script>
 	</head>
 	<!--ESTRUCTURA PAGINA WEB-->
 	<body>
@@ -334,6 +335,28 @@
 							   fillOpacity: 0,
 						});}}).addTo(map);
 					
+					let BOYA_ANCLAJE_08_24 = L.geoJson(bya_08_24, {pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, {
+							   radius: 5,
+							   fillColor: '#82a639',
+							   color: '#ffffff',
+							   weight: 1,
+							   opacity: 1,
+							   fillOpacity: 1,
+						});}}).bindPopup(function (layer){
+						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+							   "</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
+							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+							   "</td></tr></table>"
+						}).bindTooltip(function (layer){
+						return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+							   "</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
+							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+							   "</td></tr></table>"
+						}).addTo(map);
+					
 					let BOT0 = L.geoJson(bot, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
@@ -410,9 +433,10 @@
 							'ESRI Satelital': esrisat,
 						};               
 					let overlays = {
-							'Boya Oceanográfica - BO':BOT0,
+							'Boya Oceanográfica - BO': BOT0,
 							'Boya Metoceánica - BM': BMT0,
-							'Anclaje Oceanográfico - AO':AOP0,
+							'Anclaje Oceanográfico - AO': AOP0,
+							'Boyas y Anclajes (2008 a 2023)': BOYA_ANCLAJE_08_24,
 						};
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
