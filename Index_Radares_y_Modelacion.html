@@ -1,0 +1,397 @@
+<!--TIPO DE DOCUMENTO-->
+<!DOCTYPE html>
+<html lang="en">
+	<!--CABEZAL PAGINA WEB-->
+	<head>
+		<!--TITULO (PESTAÑA)-->
+		<title>RADARES DE MEDICIÓN EN EL GOLFO DE MÉXICO</title>
+		<!--META-->
+		<meta charset="utf-8">
+		<!--LINK DE REFERENCIA-->
+		<link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css"></script>
+		<link type="text/css" rel="stylesheet" href="Control.FullScreen.css"></script> <!--PLUGIN BY 'BRUNO B' - GITHUB:'https://github.com/brunob/leaflet.fullscreen'-->
+		<link type="text/css" rel="stylesheet" href="Control.MiniMap.css"></script> <!--PLUGIN BY 'ROBERT NORDAN' - GITHUB:'https://github.com/Norkart/Leaflet-MiniMap'-->
+		<link type="text/css" rel="stylesheet" href="Control.ResetView.css"></script> <!--PLUGIN BY 'WONG HOI SING EDISON' - GITHUB:'https://github.com/drustack/Leaflet.ResetView'-->
+		<link type="text/css" rel="stylesheet" href="Control.Search.css"></script> <!--PLUGIN BY 'STEFANO CUDINI' - GITHUB:'https://github.com/stefanocudini/leaflet-search'-->
+		<link type="text/css" rel="stylesheet" href="Control.SidePanel.css"></script> <!--PLUGIN BY 'MAXWELL ILAI' - GITHUB:'https://github.com/maxwell-ilai/Leaflet.SidePanel'-->
+		<link type="text/css" rel="stylesheet" href="Control.Style.css"></script> <!--ELABORADO POR 'MR_URBANIST_MX: DIEGO ARMANDO SALAZAR GONZÁLEZ'-->
+		<link type="text/css" rel="stylesheet" href="Control.Style.Map.css"></script> <!--ELABORADO POR 'MR_URBANIST_MX: DIEGO ARMANDO SALAZAR GONZÁLEZ'-->
+		<!--SCRIPT-->
+		<script type="text/javascript" src="https://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
+		<script type="text/javascript" src="Control.FullScreen.js"></script> <!--PLUGIN BY 'BRUNO B' - GITHUB:'https://github.com/brunob/leaflet.fullscreen'-->
+		<script type="text/javascript" src="Control.MiniMap.js"></script> <!--PLUGIN BY 'ROBERT NORDAN' - GITHUB:'https://github.com/Norkart/Leaflet-MiniMap'-->
+		<script type="text/javascript" src="Control.ResetView.js"></script> <!--PLUGIN BY 'WONG HOI SING EDISON' - GITHUB:'https://github.com/drustack/Leaflet.ResetView'-->
+		<script type="text/javascript" src="Control.Search.js"></script> <!--PLUGIN BY 'STEFANO CUDINI' - GITHUB:'https://github.com/stefanocudini/leaflet-search'-->
+		<script type="text/javascript" src="Control.SidePanel.js"></script> <!--PLUGIN BY 'MAXWELL ILAI' - GITHUB:'https://github.com/maxwell-ilai/Leaflet.SidePanel'-->
+		<!--ARCHIVOS CARTOGRAFÍA GEOJSON-->
+		<!--PUNTOS-->
+		<!--script type="text/javascript" src="0_BOYA_ANCLAJE.JS"></script-->
+		<script type="text/javascript" src="0_EST_RADARES_HF.js"></script>
+	</head>
+	<!--ESTRUCTURA PAGINA WEB-->
+	<body>
+		<!--BARRA DE BOTONES INICIALES-->
+		<section class="head">
+				<a href="index.html"class="boton">PORTAL DE CARTOGRAFÍA GENERAL</a>
+				<a href="Index_Boyas_Anclajes_2024.html"class="boton">BOYAS Y ANCLAJES 2024</a>
+				<a class="boton">INFRAESTRUCTURA DE RADARES Y MODELACIÓN</a>
+				<a class="boton">RIESGO POR HIDROCARBUROS EN EL GOLFO DE MÉXICO</a>
+		</section>
+		<!--VISUALIZADOR DE CAPAS-->
+		<section class="mapa">
+			<!--MAPA-->
+			<div id="map">
+				<!--SIDEPANEL LEFT (IZQUIERDO)-->
+				<div id="mySidepanelLeft" 
+					class="sidepanel" 
+					aria-label="side panel" 
+					aria-hidden="false">
+					<div class="sidepanel-inner-wrapper">
+						<nav class="sidepanel-tabs-wrapper"
+							aria-label="sidepanel tab navigation">
+							<ul class="sidepanel-tabs">
+								<li class="sidepanel-tab">
+									<a href="#" 
+									class="sidebar-tab-link"
+									role="tab" 
+									data-tab-link="tab-1">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     width="24" 
+										 height="24"
+										 fill="currentColor"
+										 class="bi bi-layers-fill"
+										 viewBox="0 0 16 16">
+										<path d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882z"/>
+										<path d="m2.125 8.567-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0z"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#" 
+									class="sidebar-tab-link" 
+									role="tab" 
+									data-tab-link="tab-2">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     width="24" 
+										 height="24" 
+										 fill="currentColor" 
+										 class="bi bi-map" 
+										 viewBox="0 0 16 16">
+										<path fill-rule="evenodd" 
+										      d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#"
+									class="sidebar-tab-link"
+									role="tab"
+									data-tab-link="tab-3">
+									<svg xmlns="http://www.w3.org/2000/svg" 
+									     width="24"
+										 height="24"
+										 fill="currentColor" 
+										 class="bi bi-life-preserver" 
+										 viewBox="0 0 16 16">
+										<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m6.43-5.228a7.03 7.03 0 0 1-3.658 3.658l-1.115-2.788a4 4 0 0 0 1.985-1.985zM5.228 14.43a7.03 7.03 0 0 1-3.658-3.658l2.788-1.115a4 4 0 0 0 1.985 1.985zm9.202-9.202-2.788 1.115a4 4 0 0 0-1.985-1.985l1.115-2.788a7.03 7.03 0 0 1 3.658 3.658m-8.087-.87a4 4 0 0 0-1.985 1.985L1.57 5.228A7.03 7.03 0 0 1 5.228 1.57zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#" 
+									class="sidebar-tab-link" 
+									role="tab" 
+									data-tab-link="tab-4">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     width="24"
+									     height="24"
+									     fill="currentColor"
+									     class="bi bi-clipboard2-data"
+									     viewBox="0 0 16 16">
+								         <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5z"/>
+								         <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z"/>
+								         <path d="M10 7a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm4-3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1"/>
+							   		</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#"
+									class="sidebar-tab-link"
+									role="tab"
+									data-tab-link="tab-5">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										 width="24"
+									     height="24"
+									     fill="currentColor"
+									     class="bi bi-cloud-haze2-fill"
+									     viewBox="0 0 16 16">
+								   		 <path d="M8.5 2a5 5 0 0 1 4.905 4.027A3 3 0 0 1 13 12H3.5A3.5 3.5 0 0 1 .035 9H5.5a.5.5 0 0 0 0-1H.035a3.5 3.5 0 0 1 3.871-2.977A5 5 0 0 1 8.5 2m-6 8a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zM0 13.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5"/>
+							  		</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#"
+									class="sidebar-tab-link"
+									role="tab"
+									data-tab-link="tab-6">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     width="24"
+										 height="24"
+										 fill="currentColor"
+										 class="bi bi-file-person"
+										 viewBox="0 0 16 16">
+										<path d="M12 1a1 1 0 0 1 1 1v10.2555S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+										<path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+									</svg>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="sidepanel-content-wrapper">
+							<div class="sidepanel-content">
+								<div class="sidepanel-tab-content" data-tab-content="tab-1">
+									 <h4>PORTAL DE CARTOGRAFÍA, ESTADÍSTICA, PARÁMETROS Y PRONÓSTICO</h4>
+									 <p>Aqui poner descripción</p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-2">
+									 <h4>CARTOGRAFÍA</h4>
+									 <p>
+										En el siguiente apartado se encontrarán los archivos en diferentes formatos de la cartografía realizada.
+										<br></br>
+										<a href="#" class="btn">FORMATO SHAPEFILE (.SHP)</a>
+										<br></br>
+										<a href="#" class="btn">FORMATO KMZ (.KMZ / .KML)</a>
+										<br></br>
+										<a href="#" class="btn">FORMATO GEOJSON (.JSON)</a>
+										<br></br>
+										<a href="#" class="btn">FORMATO NETCDF (.NCDF)</a>
+										<br></br>
+										<a href="#" class="btn">FORMATO TIFF (.TIFF)</a>
+										<br></br>
+									 </p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-3">
+									 <h4>ESTADÍSTICA</h4>
+									 <p>
+										En el siguiente apartado se encontrará la cartografía referente a "Estadística" así como información complementaría del sitio.
+										<br></br>
+										<a href="Boya_-_Anclaje.rar" class="btn">BOYAS / ANCLAJES</a>
+										<br></br>
+										<a href="Localizaciones.rar" class="btn">LOCALIZACIONES</a>
+										<br></br>
+										<a href="Localizaciones_Parametros.rar" class="btn">LOCALIZACIÓN DE PARÁMETROS</a>
+										<br></br>
+										<a href="Poligonos_CNIH.rar" class="btn">POLÍGONOS CNIH</a>
+										<br></br>
+										<a href="https://estadistica.sycec.mx/login" class="btn">SITIO ESTADÍSTICA</a>
+										<br></br>
+									 </p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-4">
+									 <h4>PARÁMETROS</h4>
+									 <p>
+										En el siguiente apartado se encontrará la cartografía referente a "Parámetros" así como información complementaría del sitio.
+										<br></br>
+										<a href="#" class="btn">PARÁMETROS X</a>
+										<br></br>
+										<a href="#" class="btn">PARÁMETROS Y</a>
+										<br></br>
+										<a href="#" class="btn">PARÁMETROS Z</a>
+										<br></br>
+										<a href="https://parametros.sycec.mx/login" class="btn">SITIO PARÁMETROS</a>
+									 </p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-5">
+									<h4>PRONÓSTICO</h4>
+									<p>
+										En el siguiente apartado se encontrará la cartografía referente a "Pronósticos" así como información complementaría del sitio.
+										<br></br>
+										<a href="#" class="btn">PRONÓSTICOS X</a>
+										<br></br>
+										<a href="#" class="btn">PRONÓSTICOS Y</a>
+										<br></br>
+										<a href="#" class="btn">PRONÓSTICOS Z</a>
+										<br></br>
+										<a href="https://pronostico.sycec.mx/login" class="btn">SITIO PRONÓSTICO</a>
+										<br></br>
+									</p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-6">
+									<h4>ACERCA DE</h4>
+									<p>
+										<a href="https://sycec.com.mx/" class="btn">SITIO WEB SYCEC</a>
+										<br></br>
+										<a href="https://maps.app.goo.gl/KXfM5qyWxJtTY2FT9" class="btn">DIRECCIÓN</a>
+										<br></br>
+										<a href="mailto:uc.rogelio@sycec.com.mx" class="btn">CORREO</a>
+										<br></br>
+										<a href="#" class="btn">TELEFONO</a>
+									</p>
+									<h4>CRÉDITOS SERVICIOS WEB</h4>
+									<p>
+										| © "Leaflet" | y complementos |</br>
+										| © "OpenStreetMap" |</br>
+										| © "Humanitarian" |</br>
+										| © "ESRI" |</br>
+									</p>
+									<h4>CRÉDITOS CARTOGRAFÍA</h4>
+									<p>
+										| © "CNIH" (PEMEX) |</br>
+										| © "NOAA" |</br>
+									</p>
+									<h4>CRÉDITOS DESARROLLADOR WEB</h4>
+									<p>	
+										| © "Mr Urbanist MX" |</br>
+										| Desarrollador del Geovisor / Cartografía |</br>
+										<br></br>
+										<br></br>
+										<br></br>
+										| Todos los derechos reservados |</br>
+										| Año 2024 |</br>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidepanel-toggle-container">
+						<button class="sidepanel-toggle-button"
+								type="button" 
+								aria-label="toggle side panel">
+						</button>
+					</div>
+				</div>
+				<script>
+					// BASEMAPS //
+					let osm = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+					let hdm = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+						attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+					let esrisat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+						attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+					let esriphy = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {
+						attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+					let esriter = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+						attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+					let esriocea = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',{
+						attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+					//  CONFIGURACIÓN LIENZO //
+					let map = L.map('map', {
+						layers: [osm],
+						tap: false,
+						center: new L.LatLng(22.25, -92.25),
+						zoom: 7,
+						minZoom: 5,
+						fullscreenControl: true,
+						fullscreenControlOptions: {
+							title: 'Hide FullScreen',
+							titleCancel: 'Show Fullscreen out'
+						}
+					});
+					map.on('Hide Fullscreen',
+						function () {
+							if (window.console) window.console.log('Hide Fullscreen');
+					});
+					map.on('Show Fullscreen',
+						function () {
+							if (window.console) window.console.log('Show Fullscreen');
+					});
+					let toggleFullscreen = function () {
+					map.toggleFullscreen();
+					};
+					// TITULO //
+					let info = L.control();
+						info.onAdd = function (map) {
+								this._div = L.DomUtil.create('div', 'info');
+								this.update();
+							return this._div;
+							};
+							info.update = function (props) {
+								this._div.innerHTML = `<h3>VISUALIZADOR DE CAPAS</h3>`;
+							};
+							info.addTo(map);
+					// SIDEPANEL CARACTERISITCAS//
+					let sidepanelLeft = L.control.sidepanel('mySidepanelLeft', {
+						tabsPosition: 'left',
+						darkMode: true,
+						startTab: 'tab-1'
+					}).addTo(map);
+					// ESCALA //
+					let Escala = L.control.scale({ position: 'bottomright'}).addTo(map);
+					// MINIBASEMAP //
+					let MMUrl='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+					let MMap = new L.TileLayer(MMUrl, {minZoom: 0, maxZoom: 10,});
+					let miniMap = new L.Control.MiniMap(MMap, { toggleDisplay: true, position: 'bottomleft'}).addTo(map);					
+					// CARTOGRAFIA GEOJSON (CAPAS) //
+					// PUNTOS (CAPAS) //
+						let EST_RADAR = L.geoJson(radar_hf, {pointToLayer: function (feature, latlng) {
+						return L.circleMarker(latlng, {
+							   radius: 5,
+							   fillColor: '#ff4f4c',
+							   color: '#bfbfbf',
+							   weight: 1,
+							   opacity: 1,
+							   fillOpacity: 1,
+						});}}).bindPopup(function (layer){
+						return "<div style=text-align:center><h4>NOMBRE ESTACIÓN: " + layer.feature.properties.NOM_EST +
+							   "</div><hr><table><tr><td>Clave de Estación de medición: " + layer.feature.properties.CVE_EST +
+							   "</div><hr><table><tr><td>Ubicación: " + layer.feature.properties.NOM_EST +
+							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+							   "</td></tr></table>"
+						}).bindTooltip(function (layer){
+						return "<div style=text-align:center><h4>NOMBRE ESTACIÓN: " + layer.feature.properties.NOM_EST +
+							   "</div><hr><table><tr><td>Clave de Estación de medición: " + layer.feature.properties.CVE_EST +
+							   "</div><hr><table><tr><td>Ubicación: " + layer.feature.properties.NOM_EST +
+							   "</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+							   "</td></tr></table>"
+						}).addTo(map);
+
+					// ACTIVAR CAPAS //
+					let baseLayers = {
+							'OpenStreetMap Standard': osm,
+							'OpenStreetMap Humanitarian': hdm,
+							'ESRI Medio Físico': esriphy,
+							'ESRI Terreno': esriter,
+							'ESRI Oceánico': esriocea,
+							'ESRI Satelital': esrisat,
+						};               
+					let overlays = {
+							'Estaciones de medición - RADARES-HF': EST_RADAR,
+						};
+					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
+					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
+					L.control.resetView({
+        			position: "topleft",
+        			title: "Return zoom",
+       				latlng: L.latLng([22.25, -92.25]),
+        			zoom: 7,
+   					}).addTo(map);
+					// SEARCH CONTROL //
+					let searchControl = new L.Control.Search({
+						layer: EST_RADAR,
+						propertyName: 'NOM_EST',
+						market: true,
+						textPlaceholder: 'Buscar información',
+						moveToLocation: function(latlng, title, map) {
+							let zoom = map.getBoundsZoom(latlng.layer.getBounds());
+							map.setView(latlng, zoom);
+							}
+						});
+						searchControl.on('search:locationfound', function(e)
+							{e.layer.setStyle({
+											fillColor: '#3f0', 
+											color: '#0f0',
+											});
+							if(e.layer._popup)
+								e.layer.bindPopup();
+						}).on('search:collapsed', function(e) {
+							EST_RADAR.eachLayer(function(layer) 
+							{ EST_RADAR.resetStyle(layer);
+							});	
+						});
+					map.addControl(searchControl);
+				</script>
+		</section>
+	</body>
+</html>
