@@ -10,7 +10,7 @@
   cursor: default;
 }
 .sidepanel.sidepanel-dark {
-  background-color: #2b2b2b;
+  background-color: #111111;
 }
 @media screen and (max-width: 500px) {
   .sidepanel {
@@ -49,13 +49,13 @@
   z-index: 1000;
 }
 .sidepanel.sidepanel-dark .sidepanel-inner-wrapper {
-  background-color: #2b2b2b;
+  background-color: #111111;
 }
 .sidepanel-content-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
-  color: #2b2b2b;
+  color: #111111;
   overflow-y: auto;
   overflow-x: hidden;
 }
