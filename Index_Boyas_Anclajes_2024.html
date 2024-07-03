@@ -438,7 +438,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-						let BMT0 = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
+					let BMT0 = L.geoJson(bmt, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#ffc84b',
@@ -460,7 +460,7 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
-						let AOP0 = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
+					let AOP0 = L.geoJson(aop, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#7a8ef5',
@@ -481,6 +481,13 @@
 							   "</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
 							   "</td></tr></table>"
 						}).addTo(map);
+
+					let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tropical_cyclones/ows?", {
+							layers: 'active_tropical_cyclones',
+							format: 'image/png',
+							transparent: true,
+							attribution: "NOAA nowCOAST"
+						}).addTo(map);
 					// ACTIVAR CAPAS //
 					let baseLayers = {
 							'OpenStreetMap Standard': osm,
@@ -495,6 +502,7 @@
 							'Boya Metoceánica': BMT0,
 							'Anclaje Oceanográfico':AOP0,
 							'Boyas y Anclajes (2008 a 2023)': BOYA_ANCLAJE_08_24,
+							'Ciclon Tropical / Huracán activo':ActiveCTH,
 						};
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
