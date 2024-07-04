@@ -19,7 +19,12 @@
 		<link type="text/css" rel="stylesheet" href="Control.Style.Map.Radar.css"></script> <!--ELABORADO POR 'MR_URBANIST_MX: DIEGO ARMANDO SALAZAR GONZÁLEZ'-->
 		<!--SCRIPT-->
 		<script type="text/javascript" src="https://unpkg.com/leaflet@latest/dist/leaflet.js"></script><!--DEVELOPER BY 'VOLODYMYR AGAFONKIN' - WEBSITE:'https://leafletjs.com/'-->
+		<script type="text/javascript" src="https://unpkg.com/geotiff@1.0.0-beta.7/dist/geotiff.bundle.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="https://unpkg.com/plotty@0.4.4/dist/plotty.min.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
 		<script type="text/javascript" src="Control.FullScreen.js"></script> <!--PLUGIN BY 'BRUNO B' - GITHUB:'https://github.com/brunob/leaflet.fullscreen'-->
+		<script type="text/javascript" src="Control.Geotiff.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="Control.Geotiff.Plotty.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="Control.Geotiff.Vector.Arrows.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
 		<script type="text/javascript" src="Control.MiniMap.js"></script> <!--PLUGIN BY 'ROBERT NORDAN' - GITHUB:'https://github.com/Norkart/Leaflet-MiniMap'-->
 		<script type="text/javascript" src="Control.ResetView.js"></script> <!--PLUGIN BY 'WONG HOI SING EDISON' - GITHUB:'https://github.com/drustack/Leaflet.ResetView'-->
 		<script type="text/javascript" src="Control.Search.js"></script> <!--PLUGIN BY 'STEFANO CUDINI' - GITHUB:'https://github.com/stefanocudini/leaflet-search'-->
@@ -36,7 +41,7 @@
 				<a href="index.html"class="boton">PORTAL DE CARTOGRAFÍA GENERAL</a>
 				<a href="Index_Boyas_Anclajes_2024.html"class="boton">BOYAS Y ANCLAJES 2024</a>
 				<a href="Index_Radares_y_Modelacion.html"class="boton">RADARES DE MEDICIÓN EN EL GOLFO DE MÉXICO</a>
-				<a class="boton">RIESGO POR HIDROCARBUROS EN EL GOLFO DE MÉXICO</a>
+				<a href="Index_Riesgo_Hidrocarburos.html"class="boton">RIESGO POR HIDROCARBUROS EN EL GOLFO DE MÉXICO</a>
 		</section>
 		<!--VISUALIZADOR DE CAPAS-->
 		<section class="mapa">
@@ -437,7 +442,7 @@
 					let miniMap = new L.Control.MiniMap(MMap, { toggleDisplay: true, position: 'bottomleft'}).addTo(map);					
 					// CARTOGRAFIA GEOJSON (CAPAS) //
 					// PUNTOS (CAPAS) //
-						let EST_RADAR = L.geoJson(radar_hf, {pointToLayer: function (feature, latlng) {
+					let EST_RADAR = L.geoJson(radar_hf, {pointToLayer: function (feature, latlng) {
 						return L.circleMarker(latlng, {
 							   radius: 5,
 							   fillColor: '#ff4f4c',
@@ -461,6 +466,33 @@
 							   "</td></tr></table>"
 						}).addTo(map);
 
+					// GEOTIFF (CAPAS)
+					let RadarArchive1 = "RADAR_U_HF.tif";
+					let PlottyRender1 = L.LeafletGeotiff.plotty({
+						displayMin: -0.430921,
+						displayMax: 0.513321,
+						clampLow: false,
+						clampHigh: false,
+						colorScale: 'jet',
+					});
+					let RADAR_U_HF_TIF = L.leafletGeotiff(RadarArchive1, {
+					    renderer: PlottyRender1,
+						opacity: 0.6,
+					}).addTo(map);
+					
+					let RadarArchive2 = "RADAR_V_HF.tif";
+					let PlottyRender2 = L.LeafletGeotiff.plotty({
+						displayMin: -0.430921,
+						displayMax: 0.513321,
+						clampLow: false,
+						clampHigh: false,
+						colorScale: 'jet',
+					});
+					let RADAR_V_HF_TIF = L.leafletGeotiff(RadarArchive2, {
+					    renderer: PlottyRender2,
+						opacity: 0.6,
+					}).addTo(map);	
+
 					// ACTIVAR CAPAS //
 					let baseLayers = {
 							'OpenStreetMap Standard': osm,
@@ -471,7 +503,9 @@
 							'ESRI Satelital': esrisat,
 						};               
 					let overlays = {
-							'Estaciones de medición - RADARES-HF': EST_RADAR,
+							'Estaciones de medición - RADAR-HF': EST_RADAR,
+							'Dirección U - RADAR-HF': RADAR_U_HF_TIF,
+							'Dirección V - RADAR-HF': RADAR_V_HF_TIF,
 						};
 					let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 					// RESET VIEW (REGRESAR VISTA IN INICIAL) //
