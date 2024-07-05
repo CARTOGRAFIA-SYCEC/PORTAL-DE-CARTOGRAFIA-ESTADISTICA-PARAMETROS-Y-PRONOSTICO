@@ -173,7 +173,7 @@ let Localizacion = L.geoJson(localizacion, {pointToLayer: function (feature, lat
             "</td></tr><tr><td>Reporte Viento y Oleaje: " + layer.feature.properties.REP_VyO +
             "</td></tr><tr><td>Reporte Corriente Marina: " + layer.feature.properties.REP_COR +
             "</td></tr></table>"
-    }).addTo(map);
+    });
 
 let Parametro = L.geoJson(parametro, {pointToLayer: function (feature, latlng) {
     return L.circleMarker(latlng, {
@@ -653,7 +653,7 @@ let Contratos_No_Vigentes = L.geoJson(c_nv, {style: function (feature){
             "</td></tr><tr><td>Contratista: " + layer.feature.properties.CONSTRATIS +
             "</td></tr><tr><td>Paises: " + layer.feature.properties.PAIS +
             "</td></tr></table>"
-    }).addTo(map);
+    });
 
 let Contratos_Produccion_Compartida = L.geoJson(c_pc, {style: function (feature){
     return {
@@ -688,7 +688,7 @@ let Contratos_Produccion_Compartida = L.geoJson(c_pc, {style: function (feature)
             "</td></tr><tr><td>Fecha: " + layer.feature.properties.FECHA +
             "</td></tr><tr><td>Superficie: " + layer.feature.properties.SUPERFICIE +
             "</td></tr></table>"
-    }).addTo(map);
+    });
 
 // ACTIVAR CAPAS //
 let baseLayers = {
