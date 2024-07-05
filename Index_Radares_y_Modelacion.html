@@ -1,0 +1,418 @@
+<!--TIPO DE DOCUMENTO-->
+<!DOCTYPE html>
+<html lang="en">
+	<!--CABEZAL PAGINA WEB-->
+	<head>
+		<!--TITULO E IMAGEN (PESTAÑA)-->
+		<title>
+			RADARES DE MEDICIÓN EN EL GOLFO DE MÉXICO
+		</title>
+		<link type="image/png" rel='shortcut icon' href='./Icon/Icon.Radar.png'></link>
+		<!--META-->
+		<meta charset="utf-8"></meta>
+		<!--LINK DE REFERENCIA-->
+		<link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css"></link><!--DEVELOPER BY 'VOLODYMYR AGAFONKIN' - WEBSITE:'https://leafletjs.com/'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.FullScreen.css"></link> <!--PLUGIN BY 'BRUNO B' - GITHUB:'https://github.com/brunob/leaflet.fullscreen'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.MiniMap.css"></link> <!--PLUGIN BY 'ROBERT NORDAN' - GITHUB:'https://github.com/Norkart/Leaflet-MiniMap'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.ResetView.css"></link> <!--PLUGIN BY 'WONG HOI SING EDISON' - GITHUB:'https://github.com/drustack/Leaflet.ResetView'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.Search.css"></script> <!--PLUGIN BY 'STEFANO CUDINI' - GITHUB:'https://github.com/stefanocudini/leaflet-search'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.SidePanel.Radar.css"></link> <!--PLUGIN BY 'MAXWELL ILAI' - GITHUB:'https://github.com/maxwell-ilai/Leaflet.SidePanel'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.Style.Radar.css"></link> <!--ELABORADO POR 'MR_URBANIST_MX: DIEGO ARMANDO SALAZAR GONZÁLEZ'-->
+		<link type="text/css" rel="stylesheet" href="./Control/Control.Style.Map.Radar.css"></link> <!--ELABORADO POR 'MR_URBANIST_MX: DIEGO ARMANDO SALAZAR GONZÁLEZ'-->
+		<!--SCRIPT´S-->
+		<script type="text/javascript" src="https://unpkg.com/leaflet@latest/dist/leaflet.js"></script><!--DEVELOPER BY 'VOLODYMYR AGAFONKIN' - WEBSITE:'https://leafletjs.com/'-->
+		<script type="text/javascript" src="https://unpkg.com/geotiff@1.0.0-beta.7/dist/geotiff.bundle.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="https://unpkg.com/plotty@0.4.4/dist/plotty.min.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="./Control/Control.FullScreen.js"></script> <!--PLUGIN BY 'BRUNO B' - GITHUB:'https://github.com/brunob/leaflet.fullscreen'-->
+		<script type="text/javascript" src="./Control/Control.Geotiff.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="./Control/Control.Geotiff.Plotty.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="./Control/Control.Geotiff.Vector.Arrows.js"></script><!--PLUGIN BY 'CHRISTIAN WERNER / ONACI' - GITHUB:'https://github.com/onaci/leaflet-geotiff-2'-->
+		<script type="text/javascript" src="./Control/Control.MiniMap.js"></script> <!--PLUGIN BY 'ROBERT NORDAN' - GITHUB:'https://github.com/Norkart/Leaflet-MiniMap'-->
+		<script type="text/javascript" src="./Control/Control.ResetView.js"></script> <!--PLUGIN BY 'WONG HOI SING EDISON' - GITHUB:'https://github.com/drustack/Leaflet.ResetView'-->
+		<script type="text/javascript" src="./Control/Control.Search.js"></script> <!--PLUGIN BY 'STEFANO CUDINI' - GITHUB:'https://github.com/stefanocudini/leaflet-search'-->
+		<script type="text/javascript" src="./Control/Control.SidePanel.js"></script> <!--PLUGIN BY 'MAXWELL ILAI' - GITHUB:'https://github.com/maxwell-ilai/Leaflet.SidePanel'-->
+		<!--ARCHIVOS CARTOGRAFÍA GEOJSON-->
+		<!--PUNTOS LÍNEAS Y POLÍGONOS EN GEOJSON-->
+		<script type="text/javascript" src="./GeoJSON/0_EST_RADARES_HF.js"></script>
+	</head>
+	<!--ESTRUCTURA PAGINA WEB-->
+	<body>
+		<!--BARRA DE BOTONES INICIALES-->
+		<section class="head">
+				<a href="index.html"class="boton">
+					PORTAL DE CARTOGRAFÍA GENERAL
+				</a>
+				<a href="Index_Boyas_Anclajes_2024.html"class="boton">
+					BOYAS Y ANCLAJES 2024
+				</a>
+				<a href="Index_Radares_y_Modelacion.html"class="boton">
+					RADARES DE MEDICIÓN EN EL GOLFO DE MÉXICO
+				</a>
+				<a href="Index_Riesgo_Hidrocarburos.html"class="boton">
+					RIESGO POR HIDROCARBUROS EN EL GOLFO DE MÉXICO
+				</a>
+		</section>
+		<!--VISUALIZADOR DE CAPAS-->
+		<section class="mapa">
+			<!--MAPA-->
+			<div id="map">
+				<!--SIDEPANEL LEFT (IZQUIERDO)-->
+				<div id="mySidepanelLeft" 
+					 class="sidepanel" 
+					 aria-label="side panel" 
+					 aria-hidden="false">
+					<div class="sidepanel-inner-wrapper">
+						<nav class="sidepanel-tabs-wrapper"
+							 aria-label="sidepanel tab navigation">
+							<ul class="sidepanel-tabs">
+								<li class="sidepanel-tab">
+									<a href="#" 
+									class="sidebar-tab-link"
+									role="tab" 
+									data-tab-link="tab-1">
+									<svg xmlns="http://www.w3.org/2000/svg" 
+										 width="24" 
+										 height="24"
+										 fill="currentColor" 
+										 viewBox="0 0 108.727 108.727">
+										<path d="M0,7.988v92.75h108.727V7.988H0z M93.264,23.988v-13h12.462v38.083c-0.959-3.135-2.521-7.012-4.849-9.583h4.708v-0.5
+												h-5.191c-1.417-1.389-3.097-2.292-5.079-2.292c-0.729,0-1.41,0.129-2.051,0.35V24.488h12.321v-0.5H93.264z M93.264,39.488h4.587
+												c3.955,2.538,6.298,10.543,7.06,14.5H93.265L93.264,39.488L93.264,39.488z M93.777,38.988c0.485-0.189,0.998-0.292,1.537-0.292
+												c0.543,0,1.062,0.103,1.559,0.292H93.777z M78.264,10.988h14.5v13h-14.5V10.988z M78.264,24.488h14.5v12.757
+												c-0.902,0.399-1.716,0.999-2.445,1.743H78.264V24.488z M78.264,39.488h11.592c-3.873,4.472-5.236,12.898-5.466,14.5h-6.126V39.488z
+												M84.318,54.488c-0.517,3.7-2.395,11.589-6.055,14.465V54.488H84.318z M63.264,52.413c0.137,0.572,0.25,1.103,0.342,1.575h-0.342
+												V52.413z M63.264,54.488h0.434c0.004,0.018,0.008,0.039,0.011,0.057h0.005c0.119,0.688,1.732,9.621,5.88,14.443h-6.328
+												L63.264,54.488L63.264,54.488z M65.734,54.488h12.029v14.5H72.48C68.662,66.149,66.422,58.231,65.734,54.488z M77.447,69.488
+												c-0.642,0.346-1.33,0.542-2.071,0.542c-0.743,0-1.444-0.196-2.103-0.542H77.447z M63.264,10.988h14.5v13h-14.5V10.988z
+												M63.264,24.488h14.5v14.5h-14.5V24.488z M77.764,39.488v14.5H65.638c-0.17-0.925-0.888-4.521-2.374-8.203v-6.297H77.764z
+												M62.764,44.617c-0.847-1.88-1.9-3.704-3.191-5.129h3.191V44.617z M48.264,10.988h14.5v13h-14.5V10.988z M48.264,24.488h14.5v14.5
+												h-3.675c-1.417-1.388-3.097-2.292-5.08-2.292c-1.988,0-3.635,0.903-4.997,2.292h-0.748V24.488z M55.567,38.988h-3.098
+												c0.487-0.189,1-0.292,1.54-0.292C54.551,38.696,55.07,38.799,55.567,38.988z M48.55,39.488c-0.097,0.111-0.192,0.222-0.285,0.338
+												v-0.338H48.55z M33.264,10.988h14.5v13h-14.5V10.988z M33.264,24.488h14.5v14.5h-14.5V24.488z M33.264,39.488h14.5v1
+												c-3.276,4.627-4.468,12.01-4.681,13.5h-9.819V39.488z M33.264,54.488h9.747c-0.515,3.716-2.404,11.655-6.099,14.5h-3.648V54.488z
+												M36.144,69.488c-0.643,0.346-1.332,0.542-2.074,0.542c-0.275,0-0.542-0.034-0.806-0.085v-0.457H36.144z M24.334,53.988
+												c-0.275-1.497-1.988-10-6.066-14.5h14.497v14.5H24.334z M22.3,53.988h-4.035V42.831C20.416,46.319,21.759,51.175,22.3,53.988z
+												M18.264,54.488h4.128c0.003,0.018,0.007,0.039,0.01,0.057h0.005c0.118,0.688,1.733,9.621,5.88,14.443H18.264V54.488z
+												M24.428,54.488h8.336v14.5h-1.59C27.355,66.149,25.115,58.231,24.428,54.488z M32.764,69.488v0.331
+												c-0.272-0.086-0.539-0.195-0.798-0.331H32.764z M18.264,10.988h14.5v13h-14.5V10.988z M18.264,24.488h14.5v14.5h-14.5V24.488z
+												M17.764,10.988v13H3.14v0.5h14.624v14.48c-1.413-1.377-3.087-2.272-5.061-2.272c-1.988,0-3.634,0.903-4.997,2.292H3.14v0.5h4.104
+												C5.196,41.854,3.848,45.323,3,48.311V10.988H17.764z M14.261,38.988h-3.096c0.486-0.189,0.999-0.292,1.538-0.292
+												C13.246,38.696,13.764,38.799,14.261,38.988z M17.764,68.988H3.14v0.5h14.624v14.5H3.14v0.5h14.624v13.25H3V54.411l0.141,0.019
+												v0.06h0.464l0.122,0.017c0.001-0.006,0.002-0.012,0.002-0.017h14.036L17.764,68.988L17.764,68.988z M3.799,53.988
+												c0.583-3.932,2.576-11.958,6.413-14.5h5.028c0.931,0.597,1.771,1.497,2.524,2.576v11.924H3.799z M32.764,97.738h-14.5v-13.25h14.5
+												V97.738z M18.264,83.988v-14.5h10.472c1.153,1.203,2.49,2.075,4.028,2.398v12.102H18.264z M47.764,97.738h-14.5v-13.25h14.5V97.738
+												z M47.764,83.988h-14.5v-12.01c0.263,0.033,0.531,0.052,0.806,0.052c2.107,0,3.833-1.01,5.24-2.542h8.454V83.988z M47.764,68.988
+												h-8.023c3.96-4.832,5.197-13.793,5.287-14.484h0.004c0.001-0.005,0.001-0.011,0.002-0.016h2.73V68.988z M45.103,53.988
+												c0.349-2.357,1.205-6.184,2.661-9.422v9.422H45.103z M62.764,97.738h-14.5v-13.25h14.5V97.738z M62.764,83.988h-14.5v-14.5h14.5
+												V83.988z M62.764,68.988h-14.5v-14.5h14.5V68.988z M48.264,53.988V43.527c0.888-1.722,1.965-3.188,3.251-4.039h5.03
+												c2.988,1.919,5.059,6.961,6.219,11.02v3.48H48.264z M77.764,97.738h-14.5v-13.25h14.5V97.738z M63.264,83.988v-14.5h6.778
+												c1.469,1.532,3.231,2.542,5.333,2.542c0.857,0,1.65-0.174,2.389-0.476v12.434H63.264z M92.764,97.738h-14.5v-13.25h14.5V97.738z
+												M92.764,83.988h-14.5V71.33c0.868-0.443,1.648-1.078,2.352-1.842h12.148V83.988z M92.764,68.988H81.047
+												c3.959-4.831,5.197-13.79,5.288-14.484h0.004c0.001-0.005,0.001-0.011,0.002-0.016h6.424L92.764,68.988L92.764,68.988z
+												M86.41,53.988c0.58-3.911,2.557-11.872,6.354-14.458v14.458H86.41z M93.264,97.738v-13.25h12.321v-0.5H93.264v-14.5h12.321v-0.5
+												H93.264v-14.5h11.739c0.003,0.018,0.007,0.039,0.01,0.057l0.331-0.057h0.241v-0.041l0.141-0.023v43.314H93.264z"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#" 
+									class="sidebar-tab-link" 
+									role="tab" 
+									data-tab-link="tab-2">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     width="24" 
+										 height="24" 
+										 fill="currentColor" 
+										 class="bi bi-map" 
+										 viewBox="0 0 16 16">
+										<path fill-rule="evenodd" 
+										      d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 
+											    .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#"
+									   class="sidebar-tab-link"
+									   role="tab"
+									   data-tab-link="tab-3">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										 height="24" 
+										 width="24" 
+										 fill="currentColor"
+										 viewBox="0 0 32 32">
+										<path d="M26.7,2.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4c3.5,3.5,3.5,9.1,0,12.6c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3
+											    s0.5-0.1,0.7-0.3C31,13.5,31,6.5,26.7,2.3z"/>
+										<path d="M22,12.6c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c1.1-1.1,1.7-2.5,1.6-4.1c0-1.5-0.7-3-1.8-4.1
+											    c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4C23.3,8.7,23.4,11.2,22,12.6z"/>
+										<path d="M6.7,16.3c-3.5-3.5-3.5-9.1,0-12.6c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0C1,6.5,1,13.5,5.3,17.7C5.5,17.9,5.7,18,6,18
+											    s0.5-0.1,0.7-0.3C7.1,17.3,7.1,16.7,6.7,16.3z"/>
+										<path d="M8.8,14.2c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4c-1.5-1.5-1.6-4-0.2-5.4c0.4-0.4,0.4-1,0-1.4
+											    S9,5.6,8.6,6C7.5,7.1,7,8.5,7,10.1C7,11.6,7.7,13.1,8.8,14.2z"/>
+										<path d="M24,28h-2.2l-4-15.6C18.5,11.9,19,11,19,10c0-1.7-1.3-3-3-3s-3,1.3-3,3c0,1,0.5,1.9,1.3,2.4l-4,15.6H8c-0.6,0-1,0.4-1,1
+											    s0.4,1,1,1h16c0.6,0,1-0.4,1-1S24.6,28,24,28z M17.6,20h-3.3l1.6-6.3L17.6,20z M13.9,22c0,0,0.1,0,0.1,0h4c0.1,0,0.1,0,0.1,0l1.6,6
+											    h-7.4L13.9,22z"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#" 
+									   class="sidebar-tab-link" 
+									   role="tab" 
+									   data-tab-link="tab-4">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     height="24"
+									     width="24"
+									     fill="currentColor" 
+									     viewBox="0 0 70 60">
+								        <path d="M37.3,35.7v-6.3h6.6C43.2,32.6,40.5,35.2,37.3,35.7z M39.3,26.6h4.6c-0.2-1.2-0.6-2.3-1.3-3.3L39.3,26.6z M34.4,35.7v-6.2
+										        h-6.3C28.8,32.6,31.4,35.1,34.4,35.7z M37.3,0v7.5c4.6,0.3,8.8,2.1,12.1,5l5.4-5.4C50,3,43.9,0.3,37.3,0z M56.7,9.2l-5.4,5.4
+										        c2.8,3.3,4.6,7.4,4.9,12H64C63.6,19.9,61,13.8,56.7,9.2z M28.1,26.6h6.3V20C31.2,20.6,28.6,23.2,28.1,26.6z M37.3,10.4V17
+										        c2.1,0.2,3.8,1,5.4,2.2l4.7-4.7C44.5,12.2,41.1,10.7,37.3,10.4z M37.3,19.9v4.6l3.3-3.3C39.6,20.6,38.6,20.1,37.3,19.9z M15.7,26.6
+										        c0.6-10.1,8.6-18.3,18.7-19V0C20.1,0.8,8.7,12.3,8,26.6H15.7z M34.4,48.1c-9.9-0.7-17.9-8.7-18.7-18.6H8C8.7,43.7,20.1,55.2,34.4,56
+										        V48.1z M56.2,29.4c-0.8,10-8.9,18-19,18.6V56c14.5-0.7,26-12.2,26.7-26.6H56.2z M34.4,45.2v-6.6c-4.8-0.7-8.4-4.4-9.2-9.1h-6.6
+										        C19.4,37.8,26,44.5,34.4,45.2z M18.6,26.6h6.6c0.6-4.9,4.4-8.8,9.2-9.5v-6.6C26,11.2,19.2,18,18.6,26.6z M53.4,29.4h-6.6
+										        c-0.7,4.8-4.5,8.6-9.5,9.2v6.6C45.8,44.6,52.6,37.9,53.4,29.4z M44.7,21.3c1.1,1.5,1.9,3.3,2.1,5.3h6.6c-0.3-3.8-1.7-7.2-4.1-10
+										        L44.7,21.3z"/>
+							   		</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#"
+									   class="sidebar-tab-link"
+									   role="tab"
+									   data-tab-link="tab-5">
+									<svg xmlns="http://www.w3.org/2000/svg" 
+									 	 height="24"
+										 width="24"
+										 fill="currentColor" 
+										 viewBox="0 0 512 512">
+										<path d="M300.121,245.469c-0.145-0.7-0.356-1.402-0.634-2.08c-0.278-0.669-0.623-1.313-1.024-1.914
+											    c-0.412-0.613-0.868-1.181-1.391-1.693c-0.512-0.512-1.08-0.979-1.692-1.391c-0.601-0.401-1.247-0.746-1.914-1.024
+											    c-0.668-0.278-1.369-0.49-2.081-0.634c-1.436-0.289-2.916-0.289-4.352,0c-0.712,0.145-1.414,0.356-2.081,0.634
+											    c-0.679,0.278-1.325,0.623-1.926,1.024c-0.612,0.412-1.18,0.879-1.692,1.391s-0.979,1.08-1.38,1.693
+											    c-0.401,0.601-0.746,1.245-1.024,1.914c-0.278,0.678-0.49,1.38-0.634,2.081c-0.145,0.722-0.223,1.458-0.223,2.182
+											    c0,0.722,0.078,1.458,0.223,2.17c0.145,0.712,0.356,1.414,0.634,2.08c0.278,0.679,0.623,1.325,1.024,1.926
+											    c0.401,0.612,0.868,1.18,1.38,1.692c0.512,0.512,1.08,0.981,1.692,1.38c0.601,0.401,1.247,0.746,1.926,1.024
+											    c0.668,0.278,1.369,0.501,2.081,0.634c0.712,0.145,1.447,0.223,2.17,0.223c2.938,0,5.799-1.191,7.869-3.262
+											    c0.523-0.512,0.979-1.08,1.391-1.692c0.401-0.601,0.746-1.247,1.024-1.926c0.278-0.668,0.49-1.368,0.634-2.08
+											    c0.145-0.714,0.211-1.448,0.211-2.17C300.333,246.927,300.266,246.191,300.121,245.469z"/>
+										<path d="M478.609,409.043c-6.147,0-11.13,4.984-11.13,11.13c0,18.412-14.979,33.391-33.391,33.391
+											    c-18.412,0-33.391-14.979-33.391-33.391c0-6.146-4.983-11.13-11.13-11.13c-6.147,0-11.13,4.984-11.13,11.13
+											    c0,18.412-14.979,33.391-33.391,33.391c-18.412,0-33.391-14.979-33.391-33.391c0-6.146-4.983-11.13-11.13-11.13
+											    s-11.13,4.984-11.13,11.13c0,18.412-14.979,33.391-33.391,33.391c-18.412,0-33.391-14.979-33.391-33.391
+											    c0-6.146-4.983-11.13-11.13-11.13s-11.13,4.984-11.13,11.13c0,18.412-14.979,33.391-33.391,33.391
+												c-18.412,0-33.391-14.979-33.391-33.391c0-6.146-4.983-11.13-11.13-11.13s-11.13,4.984-11.13,11.13
+												c0,18.412-14.979,33.391-33.391,33.391c-18.412,0-33.391-14.979-33.391-33.391c0-6.146-4.983-11.13-11.13-11.13
+											    s-11.13,4.984-11.13,11.13c0,30.687,24.966,55.652,55.652,55.652c18.186,0,34.36-8.769,44.522-22.3
+												c10.162,13.53,26.336,22.3,44.522,22.3s34.36-8.769,44.522-22.3c10.162,13.53,26.336,22.3,44.522,22.3s34.36-8.769,44.522-22.3
+												c10.162,13.53,26.336,22.3,44.522,22.3c18.186,0,34.36-8.769,44.522-22.3c10.162,13.53,26.336,22.3,44.522,22.3
+												c30.687,0,55.652-24.966,55.652-55.652C489.739,414.027,484.756,409.043,478.609,409.043z"/>
+										<path d="M500.87,303.304c-6.147,0-11.13,4.984-11.13,11.13c0,18.412-14.979,33.391-33.391,33.391
+												c-18.412,0-33.391-14.979-33.391-33.391c0-6.146-4.983-11.13-11.13-11.13c-6.147,0-11.13,4.984-11.13,11.13
+												c0,18.412-14.979,33.391-33.391,33.391c-0.747,0-1.487-0.031-2.225-0.079c8.536-16.687,13.355-35.578,13.355-55.573
+												c0-17.168-3.558-33.517-9.965-48.361c-0.167-0.452-0.355-0.893-0.577-1.316c-17.651-39.603-55.724-68.169-100.763-72.248v-25.508
+												l147.753-42.215c4.778-1.364,8.073-5.731,8.073-10.701s-3.295-9.337-8.073-10.702L259.058,36.602
+												c-0.071-0.02-0.144-0.029-0.215-0.048c-0.292-0.077-0.588-0.145-0.888-0.198c-0.135-0.023-0.27-0.043-0.405-0.062
+												c-0.26-0.037-0.523-0.063-0.789-0.081c-0.156-0.011-0.311-0.02-0.466-0.023c-0.099-0.002-0.195-0.014-0.294-0.014
+												c-0.161,0-0.317,0.018-0.476,0.023c-0.147,0.007-0.294,0.01-0.441,0.022c-0.301,0.024-0.594,0.066-0.887,0.114
+												c-0.098,0.017-0.196,0.026-0.293,0.044c-0.816,0.156-1.599,0.4-2.342,0.722c-0.056,0.023-0.108,0.053-0.164,0.079
+												c-0.308,0.14-0.609,0.293-0.902,0.459c-0.105,0.06-0.206,0.125-0.308,0.188c-0.242,0.148-0.476,0.304-0.705,0.47
+												c-0.06,0.043-0.125,0.078-0.185,0.122c-0.051,0.039-0.096,0.085-0.147,0.125c-0.219,0.171-0.429,0.352-0.634,0.539
+												c-0.095,0.087-0.193,0.169-0.284,0.258c-0.26,0.254-0.509,0.52-0.744,0.798c-0.021,0.024-0.046,0.048-0.066,0.072
+												c-0.255,0.308-0.491,0.633-0.712,0.968c-0.053,0.081-0.1,0.166-0.151,0.249c-0.161,0.258-0.315,0.523-0.455,0.795
+												c-0.053,0.105-0.102,0.21-0.152,0.316c-0.124,0.26-0.238,0.526-0.342,0.798c-0.043,0.112-0.085,0.225-0.124,0.338
+												c-0.095,0.275-0.176,0.553-0.249,0.836c-0.03,0.115-0.062,0.228-0.088,0.343c-0.067,0.295-0.116,0.595-0.159,0.899
+												c-0.014,0.106-0.037,0.209-0.048,0.317c-0.046,0.405-0.073,0.816-0.073,1.233v89.043v33.902
+												c-45.038,4.078-83.112,32.644-100.763,72.247c-0.221,0.423-0.411,0.864-0.577,1.317c-6.408,14.845-9.965,31.194-9.965,48.361
+												c0,19.995,4.819,38.886,13.355,55.573c-0.738,0.048-1.478,0.079-2.225,0.079c-18.412,0-33.391-14.979-33.391-33.391
+												c0-6.146-4.983-11.13-11.13-11.13s-11.13,4.984-11.13,11.13c0,18.412-14.979,33.391-33.391,33.391
+												c-18.412,0-33.391-14.979-33.391-33.391c0-6.146-4.983-11.13-11.13-11.13S0,308.288,0,314.434
+												c0,30.687,24.966,55.652,55.652,55.652c18.186,0,34.36-8.769,44.522-22.3c10.162,13.53,26.336,22.3,44.522,22.3
+												c5.218,0,10.312-0.708,15.228-2.107c22.442,28.383,57.167,46.629,96.077,46.629s73.635-18.246,96.077-46.629
+												c4.916,1.399,10.01,2.107,15.228,2.107c18.186,0,34.36-8.769,44.522-22.3c10.162,13.53,26.336,22.3,44.522,22.3
+												c30.687,0,55.652-24.966,55.652-55.652C512,308.288,507.017,303.304,500.87,303.304z M267.13,62.059l104.181,29.766
+												L267.13,121.592V62.059z M256,392.347c-55.236,0-100.174-44.938-100.174-100.174c0-11.705,2.025-22.942,5.73-33.392H256
+												c6.147,0,11.13-4.984,11.13-11.13s-4.983-11.13-11.13-11.13h-83.25c17.992-26.827,48.592-44.521,83.25-44.521
+												s65.258,17.694,83.25,44.521h-16.838c-6.147,0-11.13,4.984-11.13,11.13s4.983,11.13,11.13,11.13h28.032
+												c3.705,10.45,5.73,21.688,5.73,33.392C356.174,347.409,311.236,392.347,256,392.347z"/>
+									</svg>
+									</a>
+								</li>
+								<li class="sidepanel-tab">
+									<a href="#"
+									   class="sidebar-tab-link"
+								       role="tab"
+									   data-tab-link="tab-6">
+									<svg xmlns="http://www.w3.org/2000/svg"
+									     width="24"
+										 height="24"
+										 fill="currentColor"
+										 class="bi bi-file-person"
+										 viewBox="0 0 16 16">
+										<path d="M12 1a1 1 0 0 1 1 1v10.2555S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+										<path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+									</svg>
+									</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="sidepanel-content-wrapper">
+							<div class="sidepanel-content">
+								<div class="sidepanel-tab-content" data-tab-content="tab-1">
+									<h4>PORTAL DE RADARES DE MEDICIÓN OCEANOGRÁFICA PARA EL GOLFO DE MÉXICO</h4>
+									<p>
+										En el siguiente visualizador, ... ,
+									</p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-2">
+									<h4>CARTOGRAFÍA</h4>
+									<p>
+										En el siguiente apartado se encontrarán los archivos en diferentes formatos de la cartografía realizada.
+										<br></br>
+										<a href="#" class="btn">
+											FORMATO SHAPEFILE (.SHP)
+										</a>
+										<br></br>
+										<a href="#" class="btn">
+											FORMATO KMZ (.KMZ / .KML)
+										</a>
+										<br></br>
+										<a href="#" class="btn">
+											FORMATO GEOJSON (.JSON)
+										</a>
+										<br></br>
+										<a href="#" class="btn">
+											FORMATO NETCDF (.NCDF)
+										</a>
+										<br></br>
+										<a href="#" class="btn">
+											FORMATO TIFF (.TIFF)
+										</a>
+										<br></br>
+									</p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-3">
+									<h4>
+										ESTACIONES DE MEDICIÓN - HF
+									</h4>
+									<p>
+										Se cuenta con 19 estaciones de medición en el Golfo de México.
+										<br></br>
+										01 - La Pesca (LPE)</p>
+										02 - Rancho Nuevo (RNU)</p>
+										03 - Altamira (ALT)</p>
+										04 - Tuxpan (TUX)</p>
+										05 - Lechuguillas (LEC)</p>
+										06 - La Mancha (LMA)</p>
+										07 - Anton Lizardo (ALI)</p>
+										08 - Sanchez Magallanes (SMA)</p>
+										09 - Jalapita (JAL)</p>
+										10 - Jardin Botanico (JBO)</p>
+										11 - Ciudad del Carmen (CAR)</p>
+										12 - Isla Aguada (ISL)</p>
+										13 - Sabancuy (SAB)</p>
+										14 - Champoton (CHA)</p>
+										15 - Isla Arena (ISA)</p>
+										16 - Sisal (SIS)</p>
+										17 - Telchac (TEL)</p>
+										18 - Punta Herrero (PHE)</p>
+										19 - Xcalak (XCA)</p>
+										<a href="" class="btn">
+											LISTADO DE ESTACIONES HF
+										</a>
+									 </p>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-4">
+									 <h4>
+										IMÁGENES PROCESADAS DE LOS RADARES
+									</h4>
+									<p>
+										PARRAFO
+									</p>
+									<a href="" class="btn">
+										LISTADO DE IMÁGENES DE RADAR PROCESADAS
+									</a>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-5">
+									<h4>
+										PROYECTO DORIS
+									</h4>
+									<p>
+										El Derivador Oceanográfico Remoto In Situ (DORIS), es una sonda oceanográfica diseñada para realizar mediciones 
+										autonomas y trasmitirlas al usuario en tiempo real.
+									</p>
+										Su diseño es compacto, ligero y económico por lo que se puede instalar anclado de forma simple para obtener 
+										series de tiempo (Mediciones Eulerianas) o dejarse a la deriva para obtener mediciones Lagrangeanas.
+									</p>
+										DORIS ha sido diseñado y construido en los laboratorios del IIO-UABC, éste utiliza un micro-controlador con capacidad para obtener, 
+										procesar y enviar en tiempo real, variables de hasta seis sensores (i.e. posición geográfica, temperatura, conductividad, PH, oxigeno y fluorescencia).
+									</p>
+									<a href="" class="btn">
+										LISTADO DE DORIS
+									</a>
+								</div>
+								<div class="sidepanel-tab-content" data-tab-content="tab-6">
+									<h4>
+										ACERCA DE
+									</h4>
+									<p>
+										<a href="https://sycec.com.mx/" class="btn">
+											SITIO WEB SYCEC
+										</a>
+										<br></br>
+										<a href="https://maps.app.goo.gl/KXfM5qyWxJtTY2FT9" class="btn">
+											DIRECCIÓN
+										</a>
+										<br></br>
+										<a href="mailto:uc.rogelio@sycec.com.mx" class="btn">
+											CORREO
+										</a>
+										<br></br>
+										<a href="#" class="btn">
+											TELEFONO
+										</a>
+									</p>
+									<h4>
+										CRÉDITOS SERVICIOS WEB
+									</h4>
+									<p>
+										| © "Leaflet" | y complementos |</br>
+										| © "OpenStreetMap" |</br>
+										| © "Humanitarian" |</br>
+										| © "ESRI" |</br>
+									</p>
+									<h4>
+										CRÉDITOS CARTOGRAFÍA
+									</h4>
+									<p>
+										| © "OORCO" (RADAR) |</br>
+										| © "OORCO" (DORIS) |</br>
+									</p>
+									<h4>
+										CRÉDITOS DESARROLLADOR WEB
+									</h4>
+									<p>	
+										| © "Mr Urbanist MX" |</br>
+										| Desarrollador del Geovisor / Cartografía |</br>
+										<br></br>
+										<br></br>
+										<br></br>
+										| Todos los derechos reservados |</br>
+										| Año 2024 |</br>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sidepanel-toggle-container">
+						<button class="sidepanel-toggle-button"
+								type="button" 
+								aria-label="toggle side panel">
+						</button>
+					</div>
+				</div>
+				<script type="text/javascript" src="./Tematizacion/GP_RADAR.js"></script>
+		</section>
+	</body>
+</html>
