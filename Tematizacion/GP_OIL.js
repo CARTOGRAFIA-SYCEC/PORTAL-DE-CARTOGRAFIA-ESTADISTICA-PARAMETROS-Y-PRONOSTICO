@@ -22,8 +22,8 @@ let esriocea = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/servic
 let map = L.map('map', {
         layers: [osm],
         tap: false,
-        center: new L.LatLng(22.25, -92.25),
-        zoom: 7,
+        center: new L.LatLng(19.10, -92.25),
+        zoom: 8,
         minZoom: 5,
         fullscreenControl: true,
         fullscreenControlOptions: {
@@ -73,7 +73,7 @@ let miniMap = new L.Control.MiniMap(MMap, { toggleDisplay: true, position: 'bott
 let review = L.control.resetView({
         position: "topleft",
         title: "Return zoom",
-        latlng: L.latLng([22.25, -92.25]),
+        latlng: L.latLng([19.10, -92.25]),
         zoom: 7,
     }).addTo(map);
 
@@ -221,7 +221,7 @@ let RenderizadoTIFF11 = L.LeafletGeotiff.plotty({
 let NombreTIFF11 = L.leafletGeotiff(CargaTIFF11, {
         renderer: RenderizadoTIFF11,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF12 = "./GeoTIFF/OS1015.tif";
 let RenderizadoTIFF12 = L.LeafletGeotiff.plotty({
@@ -236,31 +236,31 @@ let NombreTIFF12 = L.leafletGeotiff(CargaTIFF12, {
         opacity: 0.75,
     });
 
-let CargaTIFF13 = "./GeoTIFF/OSTUMUT_V.tif";
-let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
-        displayMin: 1,
-        displayMax: 9,
-        clampLow: false,
-        clampHigh: false,
-        colorScale: 'turbo',
-    });
-let NombreTIFF13 = L.leafletGeotiff(CargaTIFF13, {
-        renderer: RenderizadoTIFF13,
-        opacity: 0.75,
-    }).addTo(map);
+//let CargaTIFF13 = "./GeoTIFF/OSTUMUT_V.tif";
+//let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
+//        displayMin: 1,
+//        displayMax: 10,
+//        clampLow: false,
+//        clampHigh: false,
+//        colorScale: 'turbo',
+//    });
+//let NombreTIFF13 = L.leafletGeotiff(CargaTIFF13, {
+//        renderer: RenderizadoTIFF13,
+//        opacity: 0.75,
+//    }).addTo(map);
     
-let CargaTIFF14 = "./GeoTIFF/OSTUMUT_P.tif";
-let RenderizadoTIFF14 = L.LeafletGeotiff.plotty({
-        displayMin: 1,
-        displayMax: 12,
-        clampLow: false,
-        clampHigh: false,
-        colorScale: 'turbo',
-    });
-let NombreTIFF14 = L.leafletGeotiff(CargaTIFF14, {
-        renderer: RenderizadoTIFF14,
-        opacity: 0.75,
-    });
+//let CargaTIFF14 = "./GeoTIFF/OSTUMUT_P.tif";
+//let RenderizadoTIFF14 = L.LeafletGeotiff.plotty({
+//        displayMin: 1,
+//        displayMax: 13,
+//        clampLow: false,
+//        clampHigh: false,
+//        colorScale: 'turbo',
+//    });
+//let NombreTIFF14 = L.leafletGeotiff(CargaTIFF14, {
+//        renderer: RenderizadoTIFF14,
+//        opacity: 0.75,
+//    });
 
 // WEB MAP SERVICE (WMS - CAPAS) //
 let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tropical_cyclones/ows?", {
@@ -281,8 +281,8 @@ let baseLayers = {
     };               
 let overlays = {
         'Ciclon Tropical / Huracán activo':ActiveCTH,
-        'Oil Spill - Concentración de eventos':NombreTIFF13,
-        'Oil Spill - Porcentaje':NombreTIFF14,
+//        'Oil Spill - Concentración de eventos':NombreTIFF13,
+//        'Oil Spill - Porcentaje':NombreTIFF14,
         'Oil Spill - 01/07/2010':NombreTIFF1,
         'Oil Spill - 10/07/2010':NombreTIFF2,
         'Oil Spill - 20/07/2010':NombreTIFF3,
