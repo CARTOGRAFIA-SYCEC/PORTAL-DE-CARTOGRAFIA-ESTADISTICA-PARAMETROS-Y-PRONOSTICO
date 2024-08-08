@@ -130,19 +130,6 @@ let RADAR_V_HF_TIF = L.leafletGeotiff(RadarArchive2, {
         opacity: 0.6,
     });	
 
-let RadarArchive3 = "./GeoTIFF/BATIMETRIA_GOM.tif";
-let PlottyRender3 = L.LeafletGeotiff.plotty({
-        displayMin: -5102,
-        displayMax: 42,
-        clampLow: false,
-        clampHigh: false,
-        colorScale: 'turbo',
-    });
-let GOM_TIF = L.leafletGeotiff(RadarArchive3, {
-        renderer: PlottyRender3,
-        opacity: 0.6,
-    });	
-
 // ACTIVAR CAPAS //
 let baseLayers = {
         'OpenStreetMap Standard': osm,
@@ -156,7 +143,6 @@ let overlays = {
         'Estaciones de medición - RADAR-HF': EST_RADAR,
         'Dirección U - RADAR-HF': RADAR_U_HF_TIF,
         'Dirección V - RADAR-HF': RADAR_V_HF_TIF,
-        'Batimetria Golfo de México': GOM_TIF,
     };
 let layerControl = L.control.layers(
         baseLayers, 
