@@ -1,4 +1,5 @@
 #map {
+    position: absolute;
     margin: 0;
     height: 895px;
     width: 100%;
