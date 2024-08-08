@@ -128,7 +128,7 @@ let PlottyRender2 = L.LeafletGeotiff.plotty({
 let RADAR_V_HF_TIF = L.leafletGeotiff(RadarArchive2, {
         renderer: PlottyRender2,
         opacity: 0.6,
-    }).addTo(map);	
+    });	
 
 let RadarArchive3 = "./GeoTIFF/BATIMETRIA_GOM.tif";
 let PlottyRender3 = L.LeafletGeotiff.plotty({
@@ -141,7 +141,7 @@ let PlottyRender3 = L.LeafletGeotiff.plotty({
 let GOM_TIF = L.leafletGeotiff(RadarArchive3, {
         renderer: PlottyRender3,
         opacity: 0.6,
-    }).addTo(map);	
+    });	
 
 // ACTIVAR CAPAS //
 let baseLayers = {
