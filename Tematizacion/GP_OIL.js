@@ -22,8 +22,8 @@ let esriocea = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/servic
 let map = L.map('map', {
         layers: [osm],
         tap: false,
-        center: new L.LatLng(20.350, -93.415),
-        zoom: 8,
+        center: new L.LatLng(19.5, -93),
+        zoom: 9,
         minZoom: 5,
         fullscreenControl: true,
         fullscreenControlOptions: {
@@ -73,7 +73,7 @@ let miniMap = new L.Control.MiniMap(MMap, { toggleDisplay: true, position: 'bott
 let review = L.control.resetView({
         position: "topleft",
         title: "Return zoom",
-        latlng: L.latLng([20.350, -93.415]),
+        latlng: L.latLng([19.5, -93]),
         zoom: 7,
     }).addTo(map);
 
