@@ -22,7 +22,7 @@ let esriocea = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/servic
 let map = L.map('map', {
         layers: [osm],
         tap: false,
-        center: new L.LatLng(19.10, -92.25),
+        center: new L.LatLng(20.350, -93.415),
         zoom: 8,
         minZoom: 5,
         fullscreenControl: true,
@@ -73,7 +73,7 @@ let miniMap = new L.Control.MiniMap(MMap, { toggleDisplay: true, position: 'bott
 let review = L.control.resetView({
         position: "topleft",
         title: "Return zoom",
-        latlng: L.latLng([19.10, -92.25]),
+        latlng: L.latLng([20.350, -93.415]),
         zoom: 7,
     }).addTo(map);
 
@@ -90,7 +90,7 @@ let RenderizadoTIFF1 = L.LeafletGeotiff.plotty({
 let NombreTIFF1 = L.leafletGeotiff(CargaTIFF1, {
         renderer: RenderizadoTIFF1,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF2 = "./GeoTIFF/OS0710.tif";
 let RenderizadoTIFF2 = L.LeafletGeotiff.plotty({
@@ -103,7 +103,7 @@ let RenderizadoTIFF2 = L.LeafletGeotiff.plotty({
 let NombreTIFF2 = L.leafletGeotiff(CargaTIFF2, {
         renderer: RenderizadoTIFF2,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF3 = "./GeoTIFF/OS0720.tif";
 let RenderizadoTIFF3 = L.LeafletGeotiff.plotty({
@@ -116,7 +116,7 @@ let RenderizadoTIFF3 = L.LeafletGeotiff.plotty({
 let NombreTIFF3 = L.leafletGeotiff(CargaTIFF3, {
         renderer: RenderizadoTIFF3,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF4 = "./GeoTIFF/OS0730.tif";
 let RenderizadoTIFF4 = L.LeafletGeotiff.plotty({
@@ -129,7 +129,7 @@ let RenderizadoTIFF4 = L.LeafletGeotiff.plotty({
 let NombreTIFF4 = L.leafletGeotiff(CargaTIFF4, {
         renderer: RenderizadoTIFF4,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF5 = "./GeoTIFF/OS0810.tif";
 let RenderizadoTIFF5 = L.LeafletGeotiff.plotty({
@@ -142,7 +142,7 @@ let RenderizadoTIFF5 = L.LeafletGeotiff.plotty({
 let NombreTIFF5 = L.leafletGeotiff(CargaTIFF5, {
         renderer: RenderizadoTIFF5,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF6 = "./GeoTIFF/OS0820.tif";
 let RenderizadoTIFF6 = L.LeafletGeotiff.plotty({
@@ -155,7 +155,7 @@ let RenderizadoTIFF6 = L.LeafletGeotiff.plotty({
 let NombreTIFF6 = L.leafletGeotiff(CargaTIFF6, {
         renderer: RenderizadoTIFF6,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF7 = "./GeoTIFF/OS0830.tif";
 let RenderizadoTIFF7 = L.LeafletGeotiff.plotty({
@@ -168,7 +168,7 @@ let RenderizadoTIFF7 = L.LeafletGeotiff.plotty({
 let NombreTIFF7 = L.leafletGeotiff(CargaTIFF7, {
         renderer: RenderizadoTIFF7,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF8 = "./GeoTIFF/OS0910.tif";
 let RenderizadoTIFF8 = L.LeafletGeotiff.plotty({
@@ -181,7 +181,7 @@ let RenderizadoTIFF8 = L.LeafletGeotiff.plotty({
 let NombreTIFF8 = L.leafletGeotiff(CargaTIFF8, {
         renderer: RenderizadoTIFF8,
         opacity: 0.75,
-    });
+    }).addTo(map);
     
 
 let CargaTIFF9 = "./GeoTIFF/OS0920.tif";
@@ -195,7 +195,7 @@ let RenderizadoTIFF9 = L.LeafletGeotiff.plotty({
 let NombreTIFF9 = L.leafletGeotiff(CargaTIFF9, {
         renderer: RenderizadoTIFF9,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF10 = "./GeoTIFF/OS0930.tif";
 let RenderizadoTIFF10 = L.LeafletGeotiff.plotty({
@@ -208,7 +208,7 @@ let RenderizadoTIFF10 = L.LeafletGeotiff.plotty({
 let NombreTIFF10 = L.leafletGeotiff(CargaTIFF10, {
         renderer: RenderizadoTIFF10,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 let CargaTIFF11 = "./GeoTIFF/OS1005.tif";
 let RenderizadoTIFF11 = L.LeafletGeotiff.plotty({
@@ -234,7 +234,7 @@ let RenderizadoTIFF12 = L.LeafletGeotiff.plotty({
 let NombreTIFF12 = L.leafletGeotiff(CargaTIFF12, {
         renderer: RenderizadoTIFF12,
         opacity: 0.75,
-    });
+    }).addTo(map);
 
 //let CargaTIFF13 = "./GeoTIFF/OSTUMUT_V.tif";
 //let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
@@ -263,12 +263,12 @@ let NombreTIFF12 = L.leafletGeotiff(CargaTIFF12, {
 //    });
 
 // WEB MAP SERVICE (WMS - CAPAS) //
-let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tropical_cyclones/ows?", {
-        layers: 'active_tropical_cyclones',
-        format: 'image/png',
-        transparent: true,
-        attribution: "NOAA nowCOAST"
-    });
+//let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tropical_cyclones/ows?", {
+//        layers: 'active_tropical_cyclones',
+//        format: 'image/png',
+//        transparent: true,
+//        attribution: "NOAA nowCOAST"
+//    });
 
 // ACTIVAR CAPAS //
 let baseLayers = {
@@ -280,7 +280,7 @@ let baseLayers = {
         'ESRI Satelital': esrisat,
     };               
 let overlays = {
-        'Ciclon Tropical / Huracán activo':ActiveCTH,
+//        'Ciclon Tropical / Huracán activo':ActiveCTH,
 //        'Oil Spill - Concentración de eventos':NombreTIFF13,
 //        'Oil Spill - Porcentaje':NombreTIFF14,
         'Oil Spill - 01/07/2010':NombreTIFF1,
