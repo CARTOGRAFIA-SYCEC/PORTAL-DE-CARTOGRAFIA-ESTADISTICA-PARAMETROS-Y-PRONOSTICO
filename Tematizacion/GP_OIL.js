@@ -79,18 +79,188 @@ let review = L.control.resetView({
 
 // CARTOGRAFIA GEOJSON (CAPAS) //
 // GEOTIFF (CAPAS)
-let CargaTIFF1 = "./GeoTIFF/BATIMETRIA_GOM.tif";
+let CargaTIFF1 = "./GeoTIFF/OS0701.tif";
 let RenderizadoTIFF1 = L.LeafletGeotiff.plotty({
-        displayMin: -5102,
-        displayMax: 0,
+        displayMin: 1,
+        displayMax: 9,
         clampLow: false,
         clampHigh: false,
-        colorScale: 'jet',
+        colorScale: 'turbo',
     });
 let NombreTIFF1 = L.leafletGeotiff(CargaTIFF1, {
         renderer: RenderizadoTIFF1,
-        opacity: 0.6,
+        opacity: 0.75,
+    });
+
+let CargaTIFF2 = "./GeoTIFF/OS0710.tif";
+let RenderizadoTIFF2 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF2 = L.leafletGeotiff(CargaTIFF2, {
+        renderer: RenderizadoTIFF2,
+        opacity: 0.75,
+    });
+
+let CargaTIFF3 = "./GeoTIFF/OS0720.tif";
+let RenderizadoTIFF3 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF3 = L.leafletGeotiff(CargaTIFF3, {
+        renderer: RenderizadoTIFF3,
+        opacity: 0.75,
+    });
+
+let CargaTIFF4 = "./GeoTIFF/OS0730.tif";
+let RenderizadoTIFF4 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF4 = L.leafletGeotiff(CargaTIFF4, {
+        renderer: RenderizadoTIFF4,
+        opacity: 0.75,
+    });
+
+let CargaTIFF5 = "./GeoTIFF/OS0810.tif";
+let RenderizadoTIFF5 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF5 = L.leafletGeotiff(CargaTIFF5, {
+        renderer: RenderizadoTIFF5,
+        opacity: 0.75,
+    });
+
+let CargaTIFF6 = "./GeoTIFF/OS0820.tif";
+let RenderizadoTIFF6 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF6 = L.leafletGeotiff(CargaTIFF6, {
+        renderer: RenderizadoTIFF6,
+        opacity: 0.75,
+    });
+
+let CargaTIFF7 = "./GeoTIFF/OS0830.tif";
+let RenderizadoTIFF7 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF7 = L.leafletGeotiff(CargaTIFF7, {
+        renderer: RenderizadoTIFF7,
+        opacity: 0.75,
+    });
+
+let CargaTIFF8 = "./GeoTIFF/OS0910.tif";
+let RenderizadoTIFF8 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF8 = L.leafletGeotiff(CargaTIFF8, {
+        renderer: RenderizadoTIFF8,
+        opacity: 0.75,
+    });
+    
+
+let CargaTIFF9 = "./GeoTIFF/OS0920.tif";
+let RenderizadoTIFF9 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF9 = L.leafletGeotiff(CargaTIFF9, {
+        renderer: RenderizadoTIFF9,
+        opacity: 0.75,
+    });
+
+let CargaTIFF10 = "./GeoTIFF/OS0930.tif";
+let RenderizadoTIFF10 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF10 = L.leafletGeotiff(CargaTIFF10, {
+        renderer: RenderizadoTIFF10,
+        opacity: 0.75,
+    });
+
+let CargaTIFF11 = "./GeoTIFF/OS1005.tif";
+let RenderizadoTIFF11 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF11 = L.leafletGeotiff(CargaTIFF11, {
+        renderer: RenderizadoTIFF11,
+        opacity: 0.75,
+    });
+
+let CargaTIFF12 = "./GeoTIFF/OS1015.tif";
+let RenderizadoTIFF12 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF12 = L.leafletGeotiff(CargaTIFF12, {
+        renderer: RenderizadoTIFF12,
+        opacity: 0.75,
+    });
+
+let CargaTIFF13 = "./GeoTIFF/OSTUMUT_V.tif";
+let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 9,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF13 = L.leafletGeotiff(CargaTIFF13, {
+        renderer: RenderizadoTIFF13,
+        opacity: 0.75,
     }).addTo(map);
+    
+let CargaTIFF14 = "./GeoTIFF/OSTUMUT_P.tif";
+let RenderizadoTIFF14 = L.LeafletGeotiff.plotty({
+        displayMin: 1,
+        displayMax: 12,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'turbo',
+    });
+let NombreTIFF14 = L.leafletGeotiff(CargaTIFF14, {
+        renderer: RenderizadoTIFF14,
+        opacity: 0.75,
+    });
 
 // WEB MAP SERVICE (WMS - CAPAS) //
 let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tropical_cyclones/ows?", {
@@ -98,7 +268,7 @@ let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tro
         format: 'image/png',
         transparent: true,
         attribution: "NOAA nowCOAST"
-    }).addTo(map);
+    });
 
 // ACTIVAR CAPAS //
 let baseLayers = {
@@ -111,34 +281,23 @@ let baseLayers = {
     };               
 let overlays = {
         'Ciclon Tropical / Huracán activo':ActiveCTH,
-        'Batimetría - Golfo de México':NombreTIFF1,
+        'Oil Spill - Concentración de eventos':NombreTIFF13,
+        'Oil Spill - Porcentaje':NombreTIFF14,
+        'Oil Spill - 01/07/2010':NombreTIFF1,
+        'Oil Spill - 10/07/2010':NombreTIFF2,
+        'Oil Spill - 20/07/2010':NombreTIFF3,
+        'Oil Spill - 30/07/2010':NombreTIFF4,
+        'Oil Spill - 10/08/2010':NombreTIFF5,
+        'Oil Spill - 20/08/2010':NombreTIFF6,
+        'Oil Spill - 30/08/2010':NombreTIFF7,
+        'Oil Spill - 10/09/2010':NombreTIFF8,
+        'Oil Spill - 20/09/2010':NombreTIFF9,
+        'Oil Spill - 30/09/2010':NombreTIFF10,
+        'Oil Spill - 05/10/2010':NombreTIFF11,
+        'Oil Spill - 15/10/2010':NombreTIFF12,
     };
 let layerControl = L.control.layers(
             baseLayers,
             overlays,
                 {collapsed: false,
         }).addTo(map);
-
-// SEARCH CONTROL //
-//let searchControl = new L.Control.Search({
-//	layer: BOYA_ANCLAJE_2024,
-//	propertyName: 'NOMBRE_BOYA',
-//	market: true,
-//	textPlaceholder: 'Buscar información',
-//	moveToLocation: function(latlng, title, map) {
-//		let zoom = map.getBoundsZoom(latlng.layer.getBounds());
-//		map.setView(latlng, zoom);
-//		}
-//	});
-//	searchControl.on('search:locationfound', function(e)
-//		{e.layer.setStyle({
-//						fillColor: '#3f0', 
-//						color: '#0f0',
-//						});
-//		if(e.layer._popup)
-//			e.layer.bindPopup();
-//	}).on('search:collapsed', function(e) {
-//		BOYA_ANCLAJE_2024.eachLayer(function(layer) 
-//		{ BOYA_ANCLAJE_2024.resetStyle(layer);
-//		});	
-//	});map.addControl(searchControl);
