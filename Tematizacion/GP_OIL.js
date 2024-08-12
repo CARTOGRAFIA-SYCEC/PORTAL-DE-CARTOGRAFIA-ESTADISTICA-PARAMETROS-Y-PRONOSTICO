@@ -53,7 +53,7 @@ let info = L.control();
         return this._div;
         };
         info.update = function (props) {
-            this._div.innerHTML = `<h3>VISUALIZADOR DE CAPAS</h3>`;
+            this._div.innerHTML = `<h3>RIESGO POR HIDROCARBUROS EN EL GOLFO DE MÉXICO</h3>`;
         };
         info.addTo(map);
 
