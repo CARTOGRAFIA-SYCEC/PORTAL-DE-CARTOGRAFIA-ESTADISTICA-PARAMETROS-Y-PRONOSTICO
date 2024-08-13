@@ -50,7 +50,7 @@ let info = L.control();
         return this._div;
         };
         info.update = function (props) {
-            this._div.innerHTML = `<h3>PORTAL DE CARTOGRAFÍA GENERAL</h3>`;
+            this._div.innerHTML = `<h3>PORTAL DE CARTOGRAFÍA, ESTADÍSTICA, PARÁMETROS Y PRONÓSTICO</h3>`;
         };
         info.addTo(map);
 
