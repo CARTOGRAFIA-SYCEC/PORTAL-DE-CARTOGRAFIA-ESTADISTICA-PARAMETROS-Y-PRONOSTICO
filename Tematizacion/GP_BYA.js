@@ -1,16 +1,16 @@
 // BASEMAPS //
 let osm = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | <a href="">Lic. Brenda Ricci</a> | contributors'});
 let hdm = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | <a href="">Lic. Brenda Ricci</a> | contributors'});
 let esrisat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | <a href="">Lic. Brenda Ricci</a> | contributors'});
 let esriphy = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {
-	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | <a href="">Lic. Brenda Ricci</a> | contributors'});
 let esriter = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
-	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | <a href="">Lic. Brenda Ricci</a> | contributors'});
 let esriocea = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',{
-	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | contributors'});
+	attribution: '© <a href="https://www.openstreetmap.org/about">OpenStreetMap</a> | © <a href="https://www.hotosm.org/">Humanitarian</a> | © <a href="https://www.esri.com/es-es/home">ESRI</a> | © <a href="">Mr Urbanist MX</a> | <a href="">Lic. Brenda Ricci</a> | contributors'});
 //  CONFIGURACIÓN LIENZO //
 let map = L.map('map', {
 	layers: [osm],
@@ -70,27 +70,27 @@ let BOYA_ANCLAJE_2024 = L.geoJson(bya_2024, {pointToLayer: function (feature, la
 			fillOpacity: 0,
 	});}}).addTo(map);
 
-let BOYA_ANCLAJE_08_24 = L.geoJson(bya_08_24, {pointToLayer: function (feature, latlng) {
-	return L.circleMarker(latlng, {
-			radius: 5,
-			fillColor: '#82a639',
-			color: '#ffffff',
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 1,
-	});}}).bindPopup(function (layer){
-	return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
-			"</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
-			"</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
-			"</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
-			"</td></tr></table>"
-	}).bindTooltip(function (layer){
-	return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
-			"</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
-			"</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
-			"</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
-			"</td></tr></table>"
-	}).addTo(map);
+//let BOYA_ANCLAJE_08_24 = L.geoJson(bya_08_24, {pointToLayer: function (feature, latlng) {
+//	return L.circleMarker(latlng, {
+//			radius: 5,
+//			fillColor: '#82a639',
+//			color: '#ffffff',
+//			weight: 1,
+//			opacity: 1,
+//			fillOpacity: 1,
+//	});}}).bindPopup(function (layer){
+//	return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+//			"</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
+//			"</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+//			"</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+//			"</td></tr></table>"
+//	}).bindTooltip(function (layer){
+//	return "<div style=text-align:center><h4>NOMBRE: " + layer.feature.properties.NOMBRE_BOYA +
+//			"</div><hr><table><tr><td>Tipo de Boya: " + layer.feature.properties.N_BOYA +
+//			"</td></tr><tr><td>Coordenada X: " + layer.feature.properties.COORD_X +
+//			"</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
+//			"</td></tr></table>"
+//	}).addTo(map);
 
 let BOT0 = L.geoJson(bot, {pointToLayer: function (feature, latlng) {
 	return L.circleMarker(latlng, {
@@ -157,6 +157,21 @@ let BOT0 = L.geoJson(bot, {pointToLayer: function (feature, latlng) {
 			"</td></tr><tr><td>Coordenada Y: " + layer.feature.properties.COORD_Y +
 			"</td></tr></table>"
 	}).addTo(map);
+
+	let ActiveCTH = L.tileLayer.wms("https://nowcoast.noaa.gov/geoserver/hazards/tropical_cyclones/ows?", {
+		layers: 'active_tropical_cyclones',
+		format: 'image/png',
+		transparent: true,
+		attribution: "NOAA nowCOAST"
+	}).addTo(map);
+
+	let ActiveRadar = L.tileLayer.wms('https://nowcoast.noaa.gov/geoserver/observations/weather_radar/ows?SERVICE=WMS&', {
+		layers: 'base_reflectivity_mosaic',
+		format: 'image/png',
+		transparent: true,
+		attribution: 'NOAA nowCOAST',
+		opacity: 0.75
+	}).addTo(map);
 // ACTIVAR CAPAS //
 let baseLayers = {
 		'OpenStreetMap Standard': osm,
@@ -170,7 +185,9 @@ let overlays = {
 		'Boya Oceanográfica':BOT0,
 		'Boya Metoceánica': BMT0,
 		'Anclaje Oceanográfico':AOP0,
-		'Boyas y Anclajes (2008 a 2023)': BOYA_ANCLAJE_08_24,
+		'Trayectoria Huracanes/Ciclones Activos': ActiveCTH,
+		'Radar Meteorológico': ActiveRadar,
+//		'Boyas y Anclajes (2008 a 2023)': BOYA_ANCLAJE_08_24,
 	};
 let layerControl = L.control.layers(baseLayers, overlays, {collapsed: false,}).addTo(map);
 // RESET VIEW (REGRESAR VISTA IN INICIAL) //
