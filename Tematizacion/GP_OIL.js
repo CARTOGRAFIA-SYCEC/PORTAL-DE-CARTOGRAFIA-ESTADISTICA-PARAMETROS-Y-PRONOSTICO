@@ -195,7 +195,7 @@ let RenderizadoTIFF1 = L.LeafletGeotiff.plotty({
         displayMax: 101,
         clampLow: false,
         clampHigh: false,
-        colorScale: 'turbo',
+        colorScale: 'jet',
     });
 let NombreTIFF1 = L.leafletGeotiff(CargaTIFF1, {
         renderer: RenderizadoTIFF1,
@@ -208,7 +208,7 @@ let RenderizadoTIFF2 = L.LeafletGeotiff.plotty({
         displayMax: 101,
         clampLow: false,
         clampHigh: false,
-        colorScale: 'turbo',
+        colorScale: 'jet',
     });
 let NombreTIFF2 = L.leafletGeotiff(CargaTIFF2, {
         renderer: RenderizadoTIFF2,
@@ -221,7 +221,7 @@ let RenderizadoTIFF3 = L.LeafletGeotiff.plotty({
         displayMax: 101,
         clampLow: false,
         clampHigh: false,
-        colorScale: 'turbo',
+        colorScale: 'jet',
     });
 let NombreTIFF3 = L.leafletGeotiff(CargaTIFF3, {
         renderer: RenderizadoTIFF3,
