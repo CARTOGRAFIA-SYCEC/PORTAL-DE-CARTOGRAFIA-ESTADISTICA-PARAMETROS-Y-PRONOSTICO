@@ -23,7 +23,7 @@ let esridark = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/servic
 
 //  CONFIGURACIÓN LIENZO DEL MAPA //
 let map = L.map('map', {
-        layers: [osm],
+        layers: [esridark],
         tap: false,
         center: new L.LatLng(20, -94),
         zoom: 8,
