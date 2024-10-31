@@ -200,7 +200,7 @@ let RenderizadoTIFF1 = L.LeafletGeotiff.plotty({
 let NombreTIFF1 = L.leafletGeotiff(CargaTIFF1, {
         renderer: RenderizadoTIFF1,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF2 = "./GeoTIFF/Konen-1EXP_nortes.tif";
 let RenderizadoTIFF2 = L.LeafletGeotiff.plotty({
@@ -213,7 +213,7 @@ let RenderizadoTIFF2 = L.LeafletGeotiff.plotty({
 let NombreTIFF2 = L.leafletGeotiff(CargaTIFF2, {
         renderer: RenderizadoTIFF2,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF3 = "./GeoTIFF/Konen-1EXP_secas.tif";
 let RenderizadoTIFF3 = L.LeafletGeotiff.plotty({
@@ -226,7 +226,7 @@ let RenderizadoTIFF3 = L.LeafletGeotiff.plotty({
 let NombreTIFF3 = L.leafletGeotiff(CargaTIFF3, {
         renderer: RenderizadoTIFF3,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF4 = "./GeoTIFF/Aant-1EXP_lluvias.tif";
 let RenderizadoTIFF4 = L.LeafletGeotiff.plotty({
@@ -239,7 +239,7 @@ let RenderizadoTIFF4 = L.LeafletGeotiff.plotty({
 let NombreTIFF4 = L.leafletGeotiff(CargaTIFF4, {
         renderer: RenderizadoTIFF4,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF5 = "./GeoTIFF/Aant-1EXP_nortes.tif";
 let RenderizadoTIFF5 = L.LeafletGeotiff.plotty({
@@ -252,7 +252,7 @@ let RenderizadoTIFF5 = L.LeafletGeotiff.plotty({
 let NombreTIFF5 = L.leafletGeotiff(CargaTIFF5, {
         renderer: RenderizadoTIFF5,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF6 = "./GeoTIFF/Aant-1EXP_secas.tif";
 let RenderizadoTIFF6 = L.LeafletGeotiff.plotty({
@@ -265,7 +265,7 @@ let RenderizadoTIFF6 = L.LeafletGeotiff.plotty({
 let NombreTIFF6 = L.leafletGeotiff(CargaTIFF6, {
         renderer: RenderizadoTIFF6,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF7 = "./GeoTIFF/Ogachi-1DEL_lluvias.tif";
 let RenderizadoTIFF7 = L.LeafletGeotiff.plotty({
@@ -317,7 +317,7 @@ let RenderizadoTIFF10 = L.LeafletGeotiff.plotty({
 let NombreTIFF10 = L.leafletGeotiff(CargaTIFF10, {
         renderer: RenderizadoTIFF7,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF11 = "./GeoTIFF/Xomili-1EXP_nortes.tif";
 let RenderizadoTIFF11 = L.LeafletGeotiff.plotty({
@@ -330,7 +330,7 @@ let RenderizadoTIFF11 = L.LeafletGeotiff.plotty({
 let NombreTIFF11 = L.leafletGeotiff(CargaTIFF11, {
         renderer: RenderizadoTIFF8,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF12 = "./GeoTIFF/Xomili-1EXP_secas.tif";
 let RenderizadoTIFF12 = L.LeafletGeotiff.plotty({
@@ -343,7 +343,7 @@ let RenderizadoTIFF12 = L.LeafletGeotiff.plotty({
 let NombreTIFF12 = L.leafletGeotiff(CargaTIFF12, {
         renderer: RenderizadoTIFF9,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF13 = "./GeoTIFF/Yaxche-401EXP_lluvias.tif";
 let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
@@ -356,7 +356,7 @@ let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
 let NombreTIFF13 = L.leafletGeotiff(CargaTIFF13, {
         renderer: RenderizadoTIFF7,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF14 = "./GeoTIFF/Yaxche-401EXP_nortes.tif";
 let RenderizadoTIFF14 = L.LeafletGeotiff.plotty({
@@ -369,7 +369,7 @@ let RenderizadoTIFF14 = L.LeafletGeotiff.plotty({
 let NombreTIFF14 = L.leafletGeotiff(CargaTIFF14, {
         renderer: RenderizadoTIFF8,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 let CargaTIFF15 = "./GeoTIFF/Yaxche-401EXP_secas.tif";
 let RenderizadoTIFF15 = L.LeafletGeotiff.plotty({
@@ -382,7 +382,7 @@ let RenderizadoTIFF15 = L.LeafletGeotiff.plotty({
 let NombreTIFF15 = L.leafletGeotiff(CargaTIFF15, {
         renderer: RenderizadoTIFF9,
         opacity: 0.90,
-    }).addTo(map);
+    });
 
 // ACTIVAR CAPAS //
 let baseLayers = {
