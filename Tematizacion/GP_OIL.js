@@ -228,6 +228,162 @@ let NombreTIFF3 = L.leafletGeotiff(CargaTIFF3, {
         opacity: 0.90,
     }).addTo(map);
 
+let CargaTIFF4 = "./GeoTIFF/Aant-1EXP_lluvias.tif";
+let RenderizadoTIFF4 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF4 = L.leafletGeotiff(CargaTIFF4, {
+        renderer: RenderizadoTIFF4,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF5 = "./GeoTIFF/Aant-1EXP_nortes.tif";
+let RenderizadoTIFF5 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF5 = L.leafletGeotiff(CargaTIFF5, {
+        renderer: RenderizadoTIFF5,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF6 = "./GeoTIFF/Aant-1EXP_secas.tif";
+let RenderizadoTIFF6 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF6 = L.leafletGeotiff(CargaTIFF6, {
+        renderer: RenderizadoTIFF6,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF7 = "./GeoTIFF/Ogachi-1DEL_lluvias.tif";
+let RenderizadoTIFF7 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF7 = L.leafletGeotiff(CargaTIFF7, {
+        renderer: RenderizadoTIFF7,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF8 = "./GeoTIFF/Ogachi-1DEL_nortes.tif";
+let RenderizadoTIFF8 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF8 = L.leafletGeotiff(CargaTIFF8, {
+        renderer: RenderizadoTIFF8,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF9 = "./GeoTIFF/Ogachi-1DEL_secas.tif";
+let RenderizadoTIFF9 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF9 = L.leafletGeotiff(CargaTIFF9, {
+        renderer: RenderizadoTIFF9,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF10 = "./GeoTIFF/Xomili-1EXP_lluvias.tif";
+let RenderizadoTIFF10 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF10 = L.leafletGeotiff(CargaTIFF10, {
+        renderer: RenderizadoTIFF7,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF11 = "./GeoTIFF/Xomili-1EXP_nortes.tif";
+let RenderizadoTIFF11 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF11 = L.leafletGeotiff(CargaTIFF11, {
+        renderer: RenderizadoTIFF8,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF12 = "./GeoTIFF/Xomili-1EXP_secas.tif";
+let RenderizadoTIFF12 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF12 = L.leafletGeotiff(CargaTIFF12, {
+        renderer: RenderizadoTIFF9,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF13 = "./GeoTIFF/Yaxche-401EXP_lluvias.tif";
+let RenderizadoTIFF13 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF13 = L.leafletGeotiff(CargaTIFF13, {
+        renderer: RenderizadoTIFF7,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF14 = "./GeoTIFF/Yaxche-401EXP_nortes.tif";
+let RenderizadoTIFF14 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF14 = L.leafletGeotiff(CargaTIFF14, {
+        renderer: RenderizadoTIFF8,
+        opacity: 0.90,
+    }).addTo(map);
+
+let CargaTIFF15 = "./GeoTIFF/Yaxche-401EXP_secas.tif";
+let RenderizadoTIFF15 = L.LeafletGeotiff.plotty({
+        displayMin: 5,
+        displayMax: 101,
+        clampLow: false,
+        clampHigh: false,
+        colorScale: 'jet',
+    });
+let NombreTIFF15 = L.leafletGeotiff(CargaTIFF15, {
+        renderer: RenderizadoTIFF9,
+        opacity: 0.90,
+    }).addTo(map);
+
 // ACTIVAR CAPAS //
 let baseLayers = {
         'OpenStreetMap Standard': osm,
@@ -240,9 +396,21 @@ let baseLayers = {
     };               
 let overlays = {
         'Índice de Sensibilidad Ambiental - ISA': ISA_PEP,
+        'Aant-1EXP - Nortes':NombreTIFF5,
+        'Aant-1EXP - Lluvias':NombreTIFF4,
+        'Aant-1EXP - Secas':NombreTIFF6,
         'Konen-1EXP - Nortes':NombreTIFF2,
         'Konen-1EXP - Lluvias':NombreTIFF1,
         'Konen-1EXP - Secas':NombreTIFF3,
+        'Ogachi-1DEL - Nortes':NombreTIFF8,
+        'Ogachi-1DEL - Lluvias':NombreTIFF7,
+        'Ogachi-1DEL - Secas':NombreTIFF9,
+        'Xomili-1EXP - Nortes':NombreTIFF11,
+        'Xomili-1EXP - Lluvias':NombreTIFF10,
+        'Xomili-1EXP - Secas':NombreTIFF12,
+        'Yaxche-401EXP - Nortes':NombreTIFF14,
+        'Yaxche-401EXP - Lluvias':NombreTIFF13,
+        'Yaxche-401EXP - Secas':NombreTIFF15,
     };
 let layerControl = L.control.layers(
             baseLayers,
